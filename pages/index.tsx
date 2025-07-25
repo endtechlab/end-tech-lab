@@ -8,7 +8,7 @@ export default function Home() {
       <section className="text-center mb-20">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">End-Tech-Lab</h1>
         <p className="text-lg text-gray-600">
-          小規模事業者のIT活用を、もっとシンプルに。
+          あなたの悩みに、終止符を。
         </p>
       </section>
 
@@ -17,10 +17,10 @@ export default function Home() {
         <Link href="/services">
           <div className="p-6 border rounded-xl hover:shadow-md transition cursor-pointer text-center">
             <h2 className="text-xl font-semibold text-blue-600 mb-2">
-              サービス
+              事業内容
             </h2>
             <p className="text-sm text-gray-600">
-              IT導入・ホームページ制作など、提供しているサービス一覧。
+              IT導入・ホームページ制作など、提供している事業内容の一覧。
             </p>
           </div>
         </Link>

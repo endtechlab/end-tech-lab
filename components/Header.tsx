@@ -10,7 +10,7 @@ const Header = () => {
         </h1>
         <nav className="space-x-6 text-sm">
           <Link href="/services" className="hover:underline">
-            サービス
+            事業内容
           </Link>
           <Link href="/activities" className="hover:underline">
             活動報告
