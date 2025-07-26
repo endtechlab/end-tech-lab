@@ -18,6 +18,9 @@ const Header = () => {
           <Link href="/works" className="hover:underline">
             実績紹介
           </Link>
+          <Link href="/contact" className="hover:underline">
+            お問い合わせ
+          </Link>
         </nav>
       </div>
     </header>
