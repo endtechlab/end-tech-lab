@@ -42,7 +42,7 @@ export default function Home({ news }: { news: News[] }) {
       </section>
 
       {/* 最新情報セクション */}
-      <section className="max-w-3xl mx-auto mb-8">
+      <section className="max-w-5xl mx-auto mb-8 px-4">
         <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-300 pb-2 inline-block">最新情報・お知らせ</h2>
         <ul className="divide-y divide-gray-200 bg-white rounded-xl shadow">
           {news.length === 0 && (
