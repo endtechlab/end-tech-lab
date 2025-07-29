@@ -3,6 +3,7 @@ import { client } from "../../lib/microcms";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { Activity, ActivityResponse } from "../../types/activity";
 import Link from "next/link";
+import Head from "next/head";
 
 type Props = {
   activity: Activity;
@@ -10,31 +11,36 @@ type Props = {
 
 const ActivityDetailPage: NextPage<Props> = ({ activity }) => {
   return (
-    <main className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-gray-800 mb-4">
-        {activity.title}
-      </h1>
+    <>
+      <Head>
+        <title>{activity.title} | 活動報告 | End-Tech-Lab</title>
+        <meta name="description" content={`${activity.title} の詳細ページ`} />
+      </Head>
+      <main className="max-w-3xl mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6">{activity.title}</h1>
 
-      {activity.publishedAt && (
-        <p className="text-sm text-gray-500 mb-6">
-          {new Date(activity.publishedAt).toLocaleDateString("ja-JP")}
-        </p>
-      )}
+        {activity.publishedAt && (
+          <p className="text-gray-600 text-sm mb-4">
+            <span className="font-semibold">公開日:</span> {new Date(activity.publishedAt).toLocaleDateString("ja-JP")}
+          </p>
+        )}
 
-      <div
-        className="prose prose-base max-w-none text-gray-800"
-        dangerouslySetInnerHTML={{ __html: activity.content }}
-      />
+        {/* imageプロパティは存在しないため削除 */}
 
-      <div className="mt-10">
-        <Link
-          href="/activities"
-          className="text-blue-600 hover:underline text-sm"
-        >
-          ← 活動報告一覧に戻る
-        </Link>
-      </div>
-    </main>
+        <div
+          className="prose prose-neutral max-w-none leading-relaxed text-base"
+          dangerouslySetInnerHTML={{ __html: activity.content }}
+        />
+
+        <div className="mt-10">
+          <Link href="/activities">
+            <a className="inline-block bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded">
+              ← 一覧に戻る
+            </a>
+          </Link>
+        </div>
+      </main>
+    </>
   );
 };
 
