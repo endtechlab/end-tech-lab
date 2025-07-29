@@ -12,8 +12,7 @@ const WorksPage: NextPage<Props> = ({ works }) => {
   return (
     <main className="py-12">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-2">実績紹介</h1>
-        <div className="border-b-2 border-blue-300 w-16 mb-10"></div>
+        <h1 className="text-3xl font-bold text-gray-800 mb-10 border-b-2 border-blue-300 pb-2 inline-block">実績紹介</h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {works.map((work) => (
             <div

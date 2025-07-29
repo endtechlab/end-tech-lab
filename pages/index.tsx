@@ -6,7 +6,6 @@ export default function Home() {
     <main className="py-16">
       <section className="text-center mb-20">
         <h1 className="text-4xl font-bold text-gray-800 mb-2">End-Tech-Lab</h1>
-        <div className="border-b-2 border-blue-300 w-16 mx-auto mb-6"></div>
         <p className="text-lg text-gray-600">
           あなたの悩みに、終止符を。
         </p>

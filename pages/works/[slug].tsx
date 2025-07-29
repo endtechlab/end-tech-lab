@@ -18,8 +18,7 @@ const WorkDetailPage: NextPage<Props> = ({ work }) => {
       </Head>
       <main className="py-12">
         <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl px-8 py-10">
-          <h1 className="text-3xl font-bold mb-2 text-gray-800">{work.title}</h1>
-          <div className="border-b-2 border-blue-300 w-16 mb-8"></div>
+          <h1 className="text-3xl font-bold mb-8 text-gray-800 border-b-2 border-blue-300 pb-2 inline-block">{work.title}</h1>
 
           {work.image && (
             <img

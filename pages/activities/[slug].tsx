@@ -18,8 +18,7 @@ const ActivityDetailPage: NextPage<Props> = ({ activity }) => {
       </Head>
       <main className="py-12">
         <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl px-8 py-10">
-          <h1 className="text-3xl font-bold mb-2 text-gray-800">{activity.title}</h1>
-          <div className="border-b-2 border-blue-300 w-16 mb-8"></div>
+          <h1 className="text-3xl font-bold mb-8 text-gray-800 border-b-2 border-blue-300 pb-2 inline-block">{activity.title}</h1>
 
           {activity.publishedAt && (
             <p className="text-gray-600 text-sm mb-4">
