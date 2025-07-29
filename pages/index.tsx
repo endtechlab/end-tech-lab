@@ -51,7 +51,7 @@ export default function Home({ news }: { news: News[] }) {
           {news.map((item) => (
             <li key={item.id} className="p-4 flex flex-col md:flex-row md:items-center gap-2">
               <span className="text-sm text-gray-500 min-w-[7em] md:text-left md:w-36">
-                {item.publishedAt ? new Date(item.publishedAt).toLocaleDateString("ja-JP") : ""}
+                {item.createdAt ? new Date(item.createdAt).toLocaleDateString("ja-JP") : ""}
               </span>
               <span className="font-medium text-gray-800 flex-1">{item.title}</span>
             </li>
@@ -93,7 +93,7 @@ export default function Home({ news }: { news: News[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await client.get<NewsResponse>({ endpoint: "news", queries: { limit: 3, orders: "-publishedAt" } });
+  const data = await client.get<NewsResponse>({ endpoint: "news", queries: { limit: 3, orders: "-createdAt" } });
   return {
     props: {
       news: data.contents || [],
