@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="bg-gray-800 text-white">
+    <header className="bg-gray-800 text-white sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center md:justify-between gap-2 md:gap-0">
         <h1 className="text-xl font-bold flex-shrink-0 whitespace-nowrap">
           <Link href="/">End-Tech-Lab</Link>
