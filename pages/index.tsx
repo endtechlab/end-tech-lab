@@ -1,14 +1,41 @@
 // pages/index.tsx
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const images = [
+    "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
+  ];
+  const [current, setCurrent] = useState(0);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <main className="py-16">
-      <section className="text-center mb-20">
-        <h1 className="text-4xl font-bold text-gray-800 mb-2">End-Tech-Lab</h1>
-        <p className="text-lg text-gray-600">
-          あなたの悩みに、終止符を。
-        </p>
+      <section className="relative h-[340px] md:h-[420px] flex items-center justify-center mb-20 overflow-hidden rounded-xl shadow-lg max-w-5xl mx-auto">
+        {/* スライドショー背景 */}
+        {images.map((img, idx) => (
+          <img
+            key={img}
+            src={img}
+            alt="ヒーロー画像"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${current === idx ? 'opacity-100' : 'opacity-0'}`}
+            style={{ zIndex: 1 }}
+          />
+        ))}
+        {/* オーバーレイ */}
+        <div className="absolute inset-0 bg-black/40 z-10" />
+        {/* テキスト */}
+        <div className="relative z-20 text-center text-white">
+          <h1 className="text-4xl font-bold mb-4 drop-shadow-lg">End-Tech-Lab</h1>
+          <p className="text-lg drop-shadow">あなたの悩みに、終止符を。</p>
+        </div>
       </section>
 
       <section className="max-w-5xl mx-auto grid gap-10 md:grid-cols-3 px-2">
