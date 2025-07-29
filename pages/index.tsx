@@ -1,8 +1,11 @@
 // pages/index.tsx
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { GetStaticProps } from "next";
+import { client } from "../lib/microcms";
+import { News, NewsResponse } from "../types/news";
 
-export default function Home() {
+export default function Home({ news }: { news: News[] }) {
   const images = [
     "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80",
     "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
@@ -38,6 +41,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 最新情報セクション */}
+      <section className="max-w-3xl mx-auto mb-8">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-300 pb-2 inline-block">最新情報・お知らせ</h2>
+        <ul className="divide-y divide-gray-200 bg-white rounded-xl shadow">
+          {news.length === 0 && (
+            <li className="p-4 text-gray-500">現在お知らせはありません。</li>
+          )}
+          {news.map((item) => (
+            <li key={item.id} className="p-4 flex flex-col md:flex-row md:items-center gap-2">
+              <span className="text-sm text-gray-500 min-w-[7em] md:text-left md:w-36">
+                {item.publishedAt ? new Date(item.publishedAt).toLocaleDateString("ja-JP") : ""}
+              </span>
+              <span className="font-medium text-gray-800 flex-1">{item.title}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <section className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3 px-2">
         <Link href="/services">
           <div className="bg-white shadow-lg rounded-xl p-8 hover:shadow-xl transition cursor-pointer text-center">
@@ -70,3 +91,13 @@ export default function Home() {
     </main>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await client.get<NewsResponse>({ endpoint: "news", queries: { limit: 3, orders: "-publishedAt" } });
+  return {
+    props: {
+      news: data.contents || [],
+    },
+    revalidate: 60,
+  };
+};
