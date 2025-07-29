@@ -3,7 +3,6 @@ import { client } from "../../lib/microcms";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { Service, ServiceResponse } from "../../types/service";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
