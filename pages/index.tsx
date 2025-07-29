@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <main className="py-16">
-      <section className="relative h-[340px] md:h-[420px] flex items-center justify-center mb-20 overflow-hidden rounded-xl shadow-lg max-w-5xl mx-auto">
+      <section className="relative h-[340px] md:h-[420px] flex items-center justify-center mb-8 overflow-hidden rounded-xl shadow-lg max-w-5xl mx-auto">
         {/* スライドショー背景 */}
         {images.map((img, idx) => (
           <img
@@ -38,7 +38,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto grid gap-10 md:grid-cols-3 px-2">
+      <section className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3 px-2">
         <Link href="/services">
           <div className="bg-white shadow-lg rounded-xl p-8 hover:shadow-xl transition cursor-pointer text-center">
             <h2 className="text-xl font-semibold text-blue-700 mb-2">事業内容</h2>
