@@ -12,6 +12,11 @@ type Props = {
 
 const ServiceDetailPage: NextPage<Props> = ({ service }) => {
   return (
+    <>
+    <Head>
+      <title>{service.title} | サービス紹介 | End-Tech-Lab</title>
+      <meta name="description" content={`${service.title} の詳細ページ`} />
+    </Head>
     <main className="max-w-3xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">{service.title}</h1>
 
@@ -19,13 +24,17 @@ const ServiceDetailPage: NextPage<Props> = ({ service }) => {
         <img
           src={service.image.url}
           alt={service.title}
-          className="w-full max-h-[400px] object-cover rounded mb-6"
+          width={service.image.width}
+          height={service.image.height}
+          className="rounded"
         />
       )}
 
-      <p className="text-gray-600 text-sm mb-4">
-        <span className="font-semibold">料金:</span> {service.price}
-      </p>
+      {service.price && (
+        <p className="text-gray-600 text-sm mb-4">
+          <span className="font-semibold">料金:</span> {service.price}
+        </p>
+      )}
 
       <div
         className="prose prose-neutral max-w-none leading-relaxed text-base"
@@ -40,6 +49,7 @@ const ServiceDetailPage: NextPage<Props> = ({ service }) => {
         </Link>
       </div>
     </main>
+    </>
   );
 };
 
