@@ -1,6 +1,7 @@
+// pages/services/[slug].tsx
 import { client } from "../../lib/microcms";
-import { Service } from "../../types/service";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { Service, ServiceResponse } from "../../types/service";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -56,25 +57,29 @@ export default function ServiceDetail({ service }: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await client.getList<Service>({ endpoint: "services" });
+  const data = await client.get<ServiceResponse>({ endpoint: "services" });
 
-  const paths = data.contents.map((content) => ({
-    params: { slug: content.id },
+  const paths = data.contents.map((service) => ({
+    params: { slug: service.slug },
   }));
 
-  return { paths, fallback: false };
+  return {
+    paths,
+    fallback: false,
+  };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params?.slug;
-  if (typeof slug !== "string") throw new Error("slug is not a string");
 
-  const service = await client.getListDetail<Service>({
+  const data = await client.get<ServiceResponse>({
     endpoint: "services",
-    contentId: slug,
+    queries: { filters: `slug[equals]${slug}` },
   });
 
   return {
-    props: { service },
+    props: {
+      service: data.contents[0],
+    },
   };
 };
