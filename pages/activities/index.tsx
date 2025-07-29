@@ -30,9 +30,6 @@ const ActivitiesPage: NextPage<Props> = ({ activities }) => {
                 className="text-sm text-gray-700 mb-4 line-clamp-3"
                 dangerouslySetInnerHTML={{ __html: activity.content }}
               />
-              <Link href={`/activities/${activity.slug}`}>
-                <a className="mt-auto inline-block text-blue-700 hover:underline font-medium">詳細を見る →</a>
-              </Link>
             </div>
           ))}
         </div>

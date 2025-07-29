@@ -36,9 +36,6 @@ const ServicesPage: NextPage<Props> = ({ services }) => {
                 className="text-sm text-gray-700 mb-4 line-clamp-3"
                 dangerouslySetInnerHTML={{ __html: service.description }}
               />
-              <Link href={`/services/${service.slug}`}>
-                <a className="mt-auto inline-block text-blue-700 hover:underline font-medium">詳細を見る →</a>
-              </Link>
             </div>
           ))}
         </div>

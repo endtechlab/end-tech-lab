@@ -45,9 +45,6 @@ const WorksPage: NextPage<Props> = ({ works }) => {
                   サイトを見る →
                 </a>
               )}
-              <Link href={`/works/${work.slug}`}>
-                <a className="mt-auto inline-block text-blue-700 hover:underline font-medium">詳細を見る →</a>
-              </Link>
             </div>
           ))}
         </div>
