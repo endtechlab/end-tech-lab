@@ -10,8 +10,8 @@ type Props = {
 
 const ActivitiesPage: NextPage<Props> = ({ activities }) => {
   return (
-    <main className="py-12">
-      <div className="max-w-4xl mx-auto">
+    <main className="max-w-6xl mx-auto px-4 py-12">
+      <div>
         <h1 className="text-3xl font-bold text-gray-800 mb-12 border-b-2 border-blue-300 pb-2 inline-block max-w-full px-2">活動報告</h1>
         <div className="grid gap-8 md:grid-cols-2">
           {activities.map((activity) => (
