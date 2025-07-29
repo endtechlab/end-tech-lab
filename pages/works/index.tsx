@@ -10,46 +10,48 @@ type Props = {
 
 const WorksPage: NextPage<Props> = ({ works }) => {
   return (
-    <main className="max-w-6xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-gray-800 mb-10">実績紹介</h1>
-
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {works.map((work) => (
-          <div
-            key={work.id}
-            className="border rounded-xl shadow hover:shadow-lg transition p-6 bg-white"
-          >
-            <Link href={`/works/${work.slug}`}>
-              <h2 className="text-xl font-semibold text-blue-600 hover:underline cursor-pointer">
-                {work.title}
-              </h2>
-            </Link>
-
-            {work.image && (
-              <img
-                src={work.image.url}
-                alt={work.title}
-                className="w-full h-48 object-cover mt-4 rounded"
-              />
-            )}
-
+    <main className="min-h-screen bg-gray-50 py-12">
+      <div className="max-w-5xl mx-auto">
+        <h1 className="text-3xl font-bold text-gray-800 mb-2">実績紹介</h1>
+        <div className="border-b-2 border-blue-300 w-16 mb-10"></div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {works.map((work) => (
             <div
-              className="text-sm text-gray-700 mt-4 line-clamp-3"
-              dangerouslySetInnerHTML={{ __html: work.description }}
-            />
-
-            {work.url && (
-              <a
-                href={work.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-4 text-sm text-blue-600 hover:underline"
-              >
-                サイトを見る →
-              </a>
-            )}
-          </div>
-        ))}
+              key={work.id}
+              className="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition flex flex-col"
+            >
+              <Link href={`/works/${work.slug}`}>
+                <h2 className="text-xl font-semibold text-blue-700 hover:underline cursor-pointer mb-2">
+                  {work.title}
+                </h2>
+              </Link>
+              {work.image && (
+                <img
+                  src={work.image.url}
+                  alt={work.title}
+                  className="w-full h-40 object-cover rounded shadow-md mb-4"
+                />
+              )}
+              <div
+                className="text-sm text-gray-700 mb-4 line-clamp-3"
+                dangerouslySetInnerHTML={{ __html: work.description }}
+              />
+              {work.url && (
+                <a
+                  href={work.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-blue-700 hover:underline font-medium mb-2"
+                >
+                  サイトを見る →
+                </a>
+              )}
+              <Link href={`/works/${work.slug}`}>
+                <a className="mt-auto inline-block text-blue-700 hover:underline font-medium">詳細を見る →</a>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   );

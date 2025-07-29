@@ -10,39 +10,39 @@ type Props = {
 
 const ServicesPage: NextPage<Props> = ({ services }) => {
   return (
-    <main className="max-w-6xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-gray-800 mb-10">
-        提供サービス一覧
-      </h1>
-
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {services.map((service) => (
-          <div
-            key={service.id}
-            className="border rounded-xl shadow hover:shadow-lg transition p-6 bg-white"
-          >
-            <Link href={`/services/${service.slug}`}>
-              <h2 className="text-xl font-semibold text-blue-600 hover:underline cursor-pointer">
-                {service.title}
-              </h2>
-            </Link>
-
-            {service.image && (
-              <img
-                src={service.image.url}
-                alt={service.title}
-                className="w-full h-48 object-cover mt-4 rounded"
-              />
-            )}
-
-            <p className="text-sm text-gray-600 mt-2">料金: {service.price}</p>
-
+    <main className="min-h-screen bg-gray-50 py-12">
+      <div className="max-w-5xl mx-auto">
+        <h1 className="text-3xl font-bold text-gray-800 mb-2">提供サービス一覧</h1>
+        <div className="border-b-2 border-blue-300 w-16 mb-10"></div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
             <div
-              className="text-sm text-gray-700 mt-4 line-clamp-3"
-              dangerouslySetInnerHTML={{ __html: service.description }}
-            />
-          </div>
-        ))}
+              key={service.id}
+              className="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition flex flex-col"
+            >
+              <Link href={`/services/${service.slug}`}>
+                <h2 className="text-xl font-semibold text-blue-700 hover:underline cursor-pointer mb-2">
+                  {service.title}
+                </h2>
+              </Link>
+              {service.image && (
+                <img
+                  src={service.image.url}
+                  alt={service.title}
+                  className="w-full h-40 object-cover rounded shadow-md mb-4"
+                />
+              )}
+              <p className="text-gray-600 text-sm mb-2">料金: {service.price}</p>
+              <div
+                className="text-sm text-gray-700 mb-4 line-clamp-3"
+                dangerouslySetInnerHTML={{ __html: service.description }}
+              />
+              <Link href={`/services/${service.slug}`}>
+                <a className="mt-auto inline-block text-blue-700 hover:underline font-medium">詳細を見る →</a>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   );
