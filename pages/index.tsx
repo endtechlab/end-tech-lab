@@ -21,7 +21,7 @@ export default function Home({ news }: { news: News[] }) {
 
   return (
     <main>
-      <section className="relative h-[340px] md:h-[420px] flex items-center justify-center mb-8 overflow-hidden shadow-lg max-w-5xl mx-auto">
+      <section className="relative h-[340px] md:h-[420px] flex items-center justify-center mb-8 overflow-hidden shadow-lg max-w-6xl mx-auto px-4">
         {/* スライドショー背景 */}
         {images.map((img, idx) => (
           <img
@@ -42,7 +42,7 @@ export default function Home({ news }: { news: News[] }) {
       </section>
 
       {/* 最新情報セクション */}
-      <section className="max-w-5xl mx-auto mb-8 px-4">
+      <section className="max-w-6xl mx-auto mb-8 px-4">
         <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-300 pb-2 inline-block">最新情報・お知らせ</h2>
         <ul className="divide-y divide-gray-200 bg-white rounded-xl shadow">
           {news.length === 0 && (
@@ -59,7 +59,7 @@ export default function Home({ news }: { news: News[] }) {
         </ul>
       </section>
 
-      <section className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3 px-2">
+      <section className="max-w-6xl mx-auto grid gap-6 md:grid-cols-3 px-2">
         <Link href="/services">
           <div className="bg-white shadow-lg rounded-xl p-8 hover:shadow-xl transition cursor-pointer text-center">
             <h2 className="text-xl font-semibold text-blue-700 mb-2">事業内容</h2>
