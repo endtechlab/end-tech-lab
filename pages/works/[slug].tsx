@@ -16,7 +16,7 @@ const WorkDetailPage: NextPage<Props> = ({ work }) => {
         <title>{work.title} | 実績紹介 | End-Tech-Lab</title>
         <meta name="description" content={`${work.title} の詳細ページ`} />
       </Head>
-      <main className="min-h-screen bg-gray-50 py-12">
+      <main className="py-12">
         <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl px-8 py-10">
           <h1 className="text-3xl font-bold mb-2 text-gray-800">{work.title}</h1>
           <div className="border-b-2 border-blue-300 w-16 mb-8"></div>

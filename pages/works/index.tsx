@@ -10,7 +10,7 @@ type Props = {
 
 const WorksPage: NextPage<Props> = ({ works }) => {
   return (
-    <main className="min-h-screen bg-gray-50 py-12">
+    <main className="py-12">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-3xl font-bold text-gray-800 mb-2">実績紹介</h1>
         <div className="border-b-2 border-blue-300 w-16 mb-10"></div>
