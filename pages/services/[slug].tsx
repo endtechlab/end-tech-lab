@@ -24,9 +24,7 @@ const ServiceDetailPage: NextPage<Props> = ({ service }) => {
         <img
           src={service.image.url}
           alt={service.title}
-          width={service.image.width}
-          height={service.image.height}
-          className="rounded"
+          className="w-full max-h-[400px] object-cover rounded mb-6"
         />
       )}
 
