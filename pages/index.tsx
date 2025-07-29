@@ -21,7 +21,7 @@ export default function Home({ news }: { news: News[] }) {
 
   return (
     <main>
-      <section className="relative h-[340px] md:h-[420px] flex items-center justify-center mb-8 overflow-hidden rounded-xl shadow-lg max-w-5xl mx-auto">
+      <section className="relative h-[340px] md:h-[420px] flex items-center justify-center mb-8 overflow-hidden shadow-lg max-w-5xl mx-auto">
         {/* スライドショー背景 */}
         {images.map((img, idx) => (
           <img
