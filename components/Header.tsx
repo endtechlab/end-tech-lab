@@ -18,7 +18,7 @@ const Header = () => {
             <div className="relative w-6 h-6 flex flex-col justify-center items-center gap-y-1">
               {/* 1本目 */}
               <span className={`${HAMBURGER.LINE_WIDTH} ${HAMBURGER.LINE_HEIGHT} bg-white transition-all duration-300 origin-center
-                ${isMenuOpen ? `rotate-${HAMBURGER.ROTATE_ANGLE} translate-y-${HAMBURGER.TRANSLATE_Y}` : ''}
+                ${isMenuOpen ? `${HAMBURGER.ROTATE_45} ${HAMBURGER.TRANSLATE_Y_1_5}` : ''}
               `}></span>
 
               {/* 2本目 */}
@@ -28,7 +28,7 @@ const Header = () => {
 
               {/* 3本目 */}
               <span className={`${HAMBURGER.LINE_WIDTH} ${HAMBURGER.LINE_HEIGHT} bg-white transition-all duration-300 origin-center
-                ${isMenuOpen ? `-rotate-${HAMBURGER.ROTATE_ANGLE} -translate-y-${HAMBURGER.TRANSLATE_Y}` : ''}
+                ${isMenuOpen ? `${HAMBURGER.ROTATE_NEG_45} ${HAMBURGER.TRANSLATE_Y_NEG_1_5}` : ''}
               `}></span>
             </div>
           </button>

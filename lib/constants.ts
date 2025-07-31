@@ -59,8 +59,10 @@ export const ANIMATION = {
 export const HAMBURGER = {
   LINE_WIDTH: 'w-6',
   LINE_HEIGHT: 'h-0.5',
-  ROTATE_ANGLE: 45,
-  TRANSLATE_Y: 1.5,
+  ROTATE_45: 'rotate-45',
+  ROTATE_NEG_45: '-rotate-45',
+  TRANSLATE_Y_1_5: 'translate-y-1.5',
+  TRANSLATE_Y_NEG_1_5: '-translate-y-1.5',
   Z_INDEX_MENU: 40,
   Z_INDEX_OVERLAY: 30,
 } as const;
