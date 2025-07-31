@@ -12,9 +12,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     // ルート変更時にタイトルが見える位置にスクロール
     const handleRouteChange = () => {
-      // ヘッダーの高さ分を考慮してスクロール位置を調整
-      const headerHeight = 80; // ヘッダーの概算高さ（px）
-      window.scrollTo(0, headerHeight);
+      // 実際のヘッダー要素の高さを取得してスクロール位置を調整
+      const headerElement = document.querySelector('header');
+      const headerHeight = headerElement ? headerElement.offsetHeight : 80;
+      
+      // 少し余裕を持たせてスクロール位置を設定
+      const scrollPosition = headerHeight + 20;
+      window.scrollTo(0, scrollPosition);
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);
