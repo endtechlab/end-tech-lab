@@ -34,9 +34,9 @@ export default function Home({ news }: { news: News[] }) {
           />
         ))}
         {/* オーバーレイ */}
-        <div className={`absolute inset-0 ${HERO.OVERLAY_OPACITY} z-${HERO.Z_INDEX_OVERLAY}`} />
+        <div className={`absolute inset-0 ${HERO.OVERLAY_OPACITY} ${HERO.Z_INDEX_OVERLAY}`} />
         {/* テキスト */}
-        <div className={`relative z-${HERO.Z_INDEX_CONTENT} text-center text-white`}>
+        <div className={`relative ${HERO.Z_INDEX_CONTENT} text-center text-white`}>
           <h1 className="text-4xl font-bold mb-4 drop-shadow-lg">End-Tech-Lab</h1>
           <p className="text-lg drop-shadow">あなたの悩みに、終止符を。</p>
         </div>

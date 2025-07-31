@@ -70,8 +70,8 @@ export const HERO = {
   HEIGHT_MOBILE: 'h-[340px]',
   HEIGHT_DESKTOP: 'md:h-[420px]',
   OVERLAY_OPACITY: 'bg-black/40',
-  Z_INDEX_OVERLAY: 10,
-  Z_INDEX_CONTENT: 20,
+  Z_INDEX_OVERLAY: 'z-10',
+  Z_INDEX_CONTENT: 'z-20',
 } as const;
 
 // フォーム関連の定数
