@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import { client } from "../lib/microcms";
 import { News, NewsResponse } from "../types/news";
+import { HERO, ANIMATION, CACHE, SLIDESHOW } from "../lib/constants";
 
 export default function Home({ news }: { news: News[] }) {
   const images = [
@@ -15,27 +16,27 @@ export default function Home({ news }: { news: News[] }) {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 4000);
+    }, SLIDESHOW.INTERVAL);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <main>
-      <section className="relative h-[340px] md:h-[420px] flex items-center justify-center mb-8 overflow-hidden shadow-lg max-w-6xl mx-auto px-4">
+      <section className={`relative ${HERO.HEIGHT_MOBILE} ${HERO.HEIGHT_DESKTOP} flex items-center justify-center mb-8 overflow-hidden shadow-lg max-w-6xl mx-auto px-4`}>
         {/* スライドショー背景 */}
         {images.map((img, idx) => (
           <img
             key={img}
             src={img}
             alt="ヒーロー画像"
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${current === idx ? 'opacity-100' : 'opacity-0'}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity ${ANIMATION.DURATION_LONG} ${current === idx ? 'opacity-100' : 'opacity-0'}`}
             style={{ zIndex: 1 }}
           />
         ))}
         {/* オーバーレイ */}
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className={`absolute inset-0 ${HERO.OVERLAY_OPACITY} z-${HERO.Z_INDEX_OVERLAY}`} />
         {/* テキスト */}
-        <div className="relative z-20 text-center text-white">
+        <div className={`relative z-${HERO.Z_INDEX_CONTENT} text-center text-white`}>
           <h1 className="text-4xl font-bold mb-4 drop-shadow-lg">End-Tech-Lab</h1>
           <p className="text-lg drop-shadow">あなたの悩みに、終止符を。</p>
         </div>
@@ -98,6 +99,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       news: data.contents || [],
     },
-    revalidate: 60,
+    revalidate: CACHE.REVALIDATE_TIME,
   };
 };

@@ -1,66 +1,64 @@
 // pages/works/index.tsx
-import { client } from "../../lib/microcms";
-import type { GetStaticProps, NextPage } from "next";
-import { Work, WorkResponse } from "../../types/work";
+import { GetStaticProps } from "next";
 import Link from "next/link";
+import { client } from "../../lib/microcms";
+import { Work, WorkResponse } from "../../types/work";
+import { LAYOUT, TITLE, CARD, IMAGE, BUTTON, ANIMATION } from "../../lib/constants";
 
 type Props = {
   works: Work[];
 };
 
-const WorksPage: NextPage<Props> = ({ works }) => {
+export default function Works({ works }: Props) {
   return (
-    <main className="max-w-6xl mx-auto px-4 py-12">
+    <main className={`${LAYOUT.MAX_WIDTH} mx-auto ${LAYOUT.CONTAINER_PADDING} ${LAYOUT.MAIN_PADDING}`}>
       <div>
-        <h1 className="text-3xl font-bold text-gray-800 mb-12 border-b-2 border-blue-300 pb-2 inline-block max-w-full px-2">実績紹介</h1>
-        <div className="flex flex-col gap-8 max-w-6xl mx-auto">
-        {works.map((work) => (
-          <div
-            key={work.id}
-              className="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition flex flex-col"
-          >
-            <Link href={`/works/${work.slug}`}>
-                <h2 className="text-xl font-semibold text-blue-700 hover:underline cursor-pointer mb-2">
-                {work.title}
-              </h2>
-            </Link>
-            {work.image && (
-              <img
-                src={work.image.url}
-                alt={work.title}
-                  className="w-full h-40 object-cover rounded shadow-md mb-4"
-              />
-            )}
+        <h1 className={`${TITLE.MAIN_SIZE} ${TITLE.FONT_WEIGHT} text-gray-800 ${TITLE.MARGIN_BOTTOM} ${TITLE.BORDER_BOTTOM} ${TITLE.BORDER_COLOR} ${TITLE.PADDING_BOTTOM} inline-block max-w-full ${TITLE.PADDING_X}`}>実績紹介</h1>
+        <div className={`flex flex-col gap-8 ${LAYOUT.MAX_WIDTH} mx-auto`}>
+          {works.map((work) => (
             <div
-                className="text-sm text-gray-700 mb-4 line-clamp-3"
-              dangerouslySetInnerHTML={{ __html: work.description }}
-            />
-            {work.url && (
-              <a
-                href={work.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                  className="inline-block text-blue-700 hover:underline font-medium mb-2"
-              >
-                サイトを見る →
-              </a>
-            )}
-          </div>
-        ))}
+              key={work.id}
+              className={`bg-white ${CARD.SHADOW} ${CARD.ROUNDED} ${CARD.PADDING_SMALL} ${CARD.HOVER_SHADOW} ${ANIMATION.TRANSITION} flex flex-col`}
+            >
+              <Link href={`/works/${work.slug}`}>
+                <h2 className={`${TITLE.SUB_SIZE} font-semibold text-blue-700 hover:underline cursor-pointer ${CARD.MARGIN_BOTTOM_SMALL}`}>
+                  {work.title}
+                </h2>
+              </Link>
+              {work.image && (
+                <img
+                  src={work.image.url}
+                  alt={work.title}
+                  className={`w-full ${IMAGE.HEIGHT} ${IMAGE.COVER} ${IMAGE.ROUNDED} ${IMAGE.SHADOW} ${CARD.MARGIN_BOTTOM}`}
+                />
+              )}
+              <div
+                className={`text-sm text-gray-700 ${CARD.MARGIN_BOTTOM} line-clamp-3`}
+                dangerouslySetInnerHTML={{ __html: work.description }}
+              />
+              {work.url && (
+                <a
+                  href={work.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-block text-blue-700 hover:underline ${BUTTON.FONT_WEIGHT} ${BUTTON.MARGIN_BOTTOM}`}
+                >
+                  サイトを見る →
+                </a>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </main>
   );
-};
+}
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const data = await client.get<WorkResponse>({ endpoint: "works" });
-
   return {
     props: {
       works: data.contents,
     },
   };
 };
-
-export default WorksPage;

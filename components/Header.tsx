@@ -1,6 +1,7 @@
 // components/Header.tsx
 import Link from "next/link";
 import { useState } from "react";
+import { HAMBURGER } from "../lib/constants";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,18 +17,18 @@ const Header = () => {
           <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="メニュー">
             <div className="relative w-6 h-6 flex flex-col justify-center items-center gap-y-1">
               {/* 1本目 */}
-              <span className={`w-6 h-0.5 bg-white transition-all duration-300 origin-center
-                ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}
+              <span className={`${HAMBURGER.LINE_WIDTH} ${HAMBURGER.LINE_HEIGHT} bg-white transition-all duration-300 origin-center
+                ${isMenuOpen ? `rotate-${HAMBURGER.ROTATE_ANGLE} translate-y-${HAMBURGER.TRANSLATE_Y}` : ''}
               `}></span>
 
               {/* 2本目 */}
-              <span className={`w-6 h-0.5 bg-white transition-all duration-300 origin-center
+              <span className={`${HAMBURGER.LINE_WIDTH} ${HAMBURGER.LINE_HEIGHT} bg-white transition-all duration-300 origin-center
                 ${isMenuOpen ? 'opacity-0' : ''}
               `}></span>
 
               {/* 3本目 */}
-              <span className={`w-6 h-0.5 bg-white transition-all duration-300 origin-center
-                ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}
+              <span className={`${HAMBURGER.LINE_WIDTH} ${HAMBURGER.LINE_HEIGHT} bg-white transition-all duration-300 origin-center
+                ${isMenuOpen ? `-rotate-${HAMBURGER.ROTATE_ANGLE} -translate-y-${HAMBURGER.TRANSLATE_Y}` : ''}
               `}></span>
             </div>
           </button>
@@ -57,7 +58,7 @@ const Header = () => {
           onClick={() => setIsMenuOpen(false)}
         ></div>
       )}
-
+      
       {/* スマホ用ドロップダウンメニュー（裏から出てくるアニメーション） */}
       <div className={`absolute top-full left-0 right-0 bg-gray-800 border-t border-gray-700 md:hidden z-40 transition-all duration-300 ease-out ${isMenuOpen ? 'opacity-100 transform scale-y-100 origin-top' : 'opacity-0 transform scale-y-0 origin-top pointer-events-none'}`}>
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-4">

@@ -1,74 +1,65 @@
 // pages/activities/[slug].tsx
-import { client } from "../../lib/microcms";
-import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { Activity, ActivityResponse } from "../../types/activity";
-import Link from "next/link";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
+import { client } from "../../lib/microcms";
+import { Activity, ActivityResponse } from "../../types/activity";
+import { LAYOUT, TITLE, CARD, BUTTON, ANIMATION } from "../../lib/constants";
 
 type Props = {
   activity: Activity;
 };
 
-const ActivityDetailPage: NextPage<Props> = ({ activity }) => {
+const ActivityDetail: NextPage<Props> = ({ activity }) => {
   return (
     <>
       <Head>
-        <title>{activity.title} | 活動報告 | End-Tech-Lab</title>
-        <meta name="description" content={`${activity.title} の詳細ページ`} />
+        <title>{activity.title} | End-Tech-Lab</title>
       </Head>
-      <main className="max-w-6xl mx-auto px-4 py-12">
+      <main className={`${LAYOUT.MAX_WIDTH} mx-auto ${LAYOUT.CONTAINER_PADDING} ${LAYOUT.MAIN_PADDING}`}>
         <div>
-          <h1 className="text-3xl font-bold text-gray-800 mb-12 border-b-2 border-blue-300 pb-2 inline-block max-w-full px-2">{activity.title}</h1>
+          <h1 className={`${TITLE.MAIN_SIZE} ${TITLE.FONT_WEIGHT} text-gray-800 ${TITLE.MARGIN_BOTTOM} ${TITLE.BORDER_BOTTOM} ${TITLE.BORDER_COLOR} ${TITLE.PADDING_BOTTOM} inline-block max-w-full ${TITLE.PADDING_X}`}>{activity.title}</h1>
         </div>
-        <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-xl px-8 py-10">
+        <div className={`${LAYOUT.MAX_WIDTH} mx-auto bg-white ${CARD.SHADOW} ${CARD.ROUNDED} ${CARD.PADDING}`}>
 
-      {activity.publishedAt && (
-            <p className="text-gray-600 text-sm mb-4">
-              <span className="font-semibold">公開日:</span> {new Date(activity.publishedAt).toLocaleDateString("ja-JP")}
-        </p>
-      )}
+        {activity.publishedAt && (
+          <p className="text-gray-600 text-sm mb-4">
+            <span className="font-semibold">公開日:</span> {new Date(activity.publishedAt).toLocaleDateString("ja-JP")}
+          </p>
+        )}
 
-      <div
-            className="prose prose-neutral max-w-none leading-relaxed text-base mb-8"
-        dangerouslySetInnerHTML={{ __html: activity.content }}
-      />
+        <div
+          className="prose max-w-none"
+          dangerouslySetInnerHTML={{ __html: activity.content }}
+        />
 
-      <div className="mt-10">
-            <Link href="/activities">
-              <a className="inline-block bg-blue-50 hover:bg-blue-100 text-blue-800 font-medium px-5 py-2 rounded transition-colors border border-blue-100 shadow-sm">
-                ← 一覧に戻る
-              </a>
-        </Link>
-          </div>
-      </div>
-    </main>
+        <div className={CARD.MARGIN_TOP}>
+          <Link href="/activities">
+            <a className={`inline-block bg-blue-50 hover:bg-blue-100 text-blue-800 ${BUTTON.FONT_WEIGHT} ${BUTTON.PADDING} ${BUTTON.ROUNDED} ${ANIMATION.TRANSITION_COLORS} border border-blue-100 shadow-sm`}>
+              ← 活動報告一覧に戻る
+            </a>
+          </Link>
+        </div>
+        </div>
+      </main>
     </>
   );
 };
 
+export default ActivityDetail;
+
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await client.get<ActivityResponse>({ endpoint: "activities" });
-
-  const paths = data.contents.map((activity) => ({
-    params: { slug: activity.slug },
-  }));
-
+  const paths = data.contents.map((activity) => `/activities/${activity.slug}`);
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const slug = context.params?.slug;
-
-  const data = await client.get<ActivityResponse>({
-    endpoint: "activities",
-    queries: { filters: `slug[equals]${slug}` },
-  });
-
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const slug = params?.slug as string;
+  const data = await client.get<Activity>({ endpoint: "activities", queries: { filters: `slug[equals]${slug}` } });
   return {
     props: {
-      activity: data.contents[0],
+      activity: data,
     },
   };
 };
-
-export default ActivityDetailPage;

@@ -1,10 +1,11 @@
 // pages/_app.tsx
-import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { SCROLL } from "../lib/constants";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -14,10 +15,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     const handleRouteChange = () => {
       // 実際のヘッダー要素の高さを取得してスクロール位置を調整
       const headerElement = document.querySelector('header');
-      const headerHeight = headerElement ? headerElement.offsetHeight : 80;
+      const headerHeight = headerElement ? headerElement.offsetHeight : SCROLL.DEFAULT_HEADER_HEIGHT;
       
       // タイトルにより近い位置にスクロール位置を設定
-      const scrollPosition = headerHeight - 60;
+      const scrollPosition = headerHeight - SCROLL.OFFSET;
       window.scrollTo(0, scrollPosition);
     };
 
