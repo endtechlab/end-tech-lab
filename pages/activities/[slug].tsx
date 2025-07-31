@@ -20,26 +20,26 @@ const ActivityDetailPage: NextPage<Props> = ({ activity }) => {
         <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl px-8 py-10">
           <h1 className="text-3xl font-bold mb-8 text-gray-800 border-b-2 border-blue-300 pb-2 inline-block">{activity.title}</h1>
 
-          {activity.publishedAt && (
+      {activity.publishedAt && (
             <p className="text-gray-600 text-sm mb-4">
               <span className="font-semibold">公開日:</span> {new Date(activity.publishedAt).toLocaleDateString("ja-JP")}
-            </p>
-          )}
+        </p>
+      )}
 
-          <div
+      <div
             className="prose prose-neutral max-w-none leading-relaxed text-base mb-8"
-            dangerouslySetInnerHTML={{ __html: activity.content }}
-          />
+        dangerouslySetInnerHTML={{ __html: activity.content }}
+      />
 
-          <div className="mt-10">
+      <div className="mt-10">
             <Link href="/activities">
               <a className="inline-block bg-blue-50 hover:bg-blue-100 text-blue-800 font-medium px-5 py-2 rounded transition-colors border border-blue-100 shadow-sm">
                 ← 一覧に戻る
               </a>
-            </Link>
+        </Link>
           </div>
-        </div>
-      </main>
+      </div>
+    </main>
     </>
   );
 };

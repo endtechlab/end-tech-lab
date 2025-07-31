@@ -13,31 +13,31 @@ const ServicesPage: NextPage<Props> = ({ services }) => {
     <main className="max-w-6xl mx-auto px-4 py-12">
       <div>
         <h1 className="text-3xl font-bold text-gray-800 mb-12 border-b-2 border-blue-300 pb-2 inline-block max-w-full px-2">提供サービス一覧</h1>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <div
-              key={service.id}
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => (
+          <div
+            key={service.id}
               className="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition flex flex-col"
-            >
-              <Link href={`/services/${service.slug}`}>
+          >
+            <Link href={`/services/${service.slug}`}>
                 <h2 className="text-xl font-semibold text-blue-700 hover:underline cursor-pointer mb-2">
-                  {service.title}
-                </h2>
-              </Link>
-              {service.image && (
-                <img
-                  src={service.image.url}
-                  alt={service.title}
+                {service.title}
+              </h2>
+            </Link>
+            {service.image && (
+              <img
+                src={service.image.url}
+                alt={service.title}
                   className="w-full h-40 object-cover rounded shadow-md mb-4"
-                />
-              )}
-              <p className="text-gray-600 text-sm mb-2">料金: {service.price}</p>
-              <div
-                className="text-sm text-gray-700 mb-4 line-clamp-3"
-                dangerouslySetInnerHTML={{ __html: service.description }}
               />
-            </div>
-          ))}
+            )}
+              <p className="text-gray-600 text-sm mb-2">料金: {service.price}</p>
+            <div
+                className="text-sm text-gray-700 mb-4 line-clamp-3"
+              dangerouslySetInnerHTML={{ __html: service.description }}
+            />
+          </div>
+        ))}
         </div>
       </div>
     </main>

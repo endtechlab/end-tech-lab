@@ -20,41 +20,41 @@ const WorkDetailPage: NextPage<Props> = ({ work }) => {
         <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl px-8 py-10">
           <h1 className="text-3xl font-bold mb-8 text-gray-800 border-b-2 border-blue-300 pb-2 inline-block">{work.title}</h1>
 
-          {work.image && (
-            <img
-              src={work.image.url}
-              alt={work.title}
+      {work.image && (
+        <img
+          src={work.image.url}
+          alt={work.title}
               className="w-full max-h-[400px] object-cover rounded shadow-md mb-6"
-            />
-          )}
+        />
+      )}
 
-          <div
+      <div
             className="prose prose-neutral max-w-none leading-relaxed text-base mb-8"
-            dangerouslySetInnerHTML={{ __html: work.description }}
-          />
+        dangerouslySetInnerHTML={{ __html: work.description }}
+      />
 
-          {work.url && (
-            <div className="mt-6">
-              <a
-                href={work.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:underline text-sm"
-              >
-                公開サイトを見る →
-              </a>
-            </div>
-          )}
+      {work.url && (
+        <div className="mt-6">
+          <a
+            href={work.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline text-sm"
+          >
+            公開サイトを見る →
+          </a>
+        </div>
+      )}
 
-          <div className="mt-10">
+      <div className="mt-10">
             <Link href="/works">
               <a className="inline-block bg-blue-50 hover:bg-blue-100 text-blue-800 font-medium px-5 py-2 rounded transition-colors border border-blue-100 shadow-sm">
                 ← 一覧に戻る
               </a>
-            </Link>
+        </Link>
           </div>
-        </div>
-      </main>
+      </div>
+    </main>
     </>
   );
 };

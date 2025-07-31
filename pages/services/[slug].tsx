@@ -20,31 +20,31 @@ const ServiceDetailPage: NextPage<Props> = ({ service }) => {
       <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl px-8 py-10">
         <h1 className="text-3xl font-bold mb-8 text-gray-800 border-b-2 border-blue-300 pb-2 inline-block">{service.title}</h1>
 
-        {service.image && (
-          <img
-            src={service.image.url}
-            alt={service.title}
+      {service.image && (
+        <img
+          src={service.image.url}
+          alt={service.title}
             className="w-full max-h-[400px] object-cover rounded shadow-md mb-6"
-          />
-        )}
-
-        {service.price && (
-          <p className="text-gray-600 text-sm mb-4">
-            <span className="font-semibold">料金:</span> {service.price}
-          </p>
-        )}
-
-        <div
-          className="prose prose-neutral max-w-none leading-relaxed text-base mb-8"
-          dangerouslySetInnerHTML={{ __html: service.description }}
         />
+      )}
 
-        <div className="mt-10">
-          <Link href="/services">
+      {service.price && (
+        <p className="text-gray-600 text-sm mb-4">
+          <span className="font-semibold">料金:</span> {service.price}
+        </p>
+      )}
+
+      <div
+          className="prose prose-neutral max-w-none leading-relaxed text-base mb-8"
+        dangerouslySetInnerHTML={{ __html: service.description }}
+      />
+
+      <div className="mt-10">
+        <Link href="/services">
             <a className="inline-block bg-blue-50 hover:bg-blue-100 text-blue-800 font-medium px-5 py-2 rounded transition-colors border border-blue-100 shadow-sm">
-              ← 一覧に戻る
-            </a>
-          </Link>
+            ← 一覧に戻る
+          </a>
+        </Link>
         </div>
       </div>
     </main>
