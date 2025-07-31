@@ -22,9 +22,9 @@ const Header = () => {
               {/* アニメーション付きハンバーガーアイコン */}
               <div className={`w-6 h-6 transition-all duration-300 ${isMenuOpen ? 'rotate-90' : ''}`}>
                 <div className="w-6 h-6 flex flex-col justify-center items-center">
-                  <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
+                  <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-0.5' : ''}`}></span>
                   <span className={`w-6 h-0.5 bg-white mt-1 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-                  <span className={`w-6 h-0.5 bg-white mt-1 transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+                  <span className={`w-6 h-0.5 bg-white mt-1 transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-0.5' : ''}`}></span>
                 </div>
               </div>
             </div>
