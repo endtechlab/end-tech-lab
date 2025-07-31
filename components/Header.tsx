@@ -19,9 +19,9 @@ const Header = () => {
             aria-label="メニュー"
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center relative">
-              <span className={`w-5 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45' : ''}`}></span>
+              <span className={`w-4 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45' : ''}`}></span>
               <span className={`w-6 h-0.5 bg-white mt-1 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`w-5 h-0.5 bg-white mt-1 transition-all duration-300 ${isMenuOpen ? '-rotate-45' : ''}`}></span>
+              <span className={`w-4 h-0.5 bg-white mt-1 transition-all duration-300 ${isMenuOpen ? '-rotate-45' : ''}`}></span>
             </div>
           </button>
         </div>
