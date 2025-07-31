@@ -63,12 +63,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const slug = params?.slug as string;
-  const data = await client.get<Service>({ endpoint: "services", queries: { filters: `slug[equals]${slug}` } });
+export const getStaticProps: GetStaticProps<Props> = async (context) => {
+  const slug = context.params?.slug;
+  const data = await client.get<ServiceResponse>({
+    endpoint: "services",
+    queries: { filters: `slug[equals]${slug}` },
+  });
   return {
     props: {
-      service: data,
+      service: data.contents[0],
     },
   };
 };
