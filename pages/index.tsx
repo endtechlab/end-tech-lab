@@ -1,5 +1,6 @@
 // pages/index.tsx
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import { client } from "../lib/microcms";
@@ -18,19 +19,21 @@ export default function Home({ news }: { news: News[] }) {
       setCurrent((prev) => (prev + 1) % images.length);
     }, SLIDESHOW.INTERVAL);
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]);
 
   return (
     <main>
       <section className={`relative ${HERO.HEIGHT_MOBILE} ${HERO.HEIGHT_DESKTOP} flex items-center justify-center mb-8 overflow-hidden shadow-lg max-w-6xl mx-auto px-4`}>
         {/* スライドショー背景 */}
         {images.map((img, idx) => (
-          <img
+          <Image
             key={img}
             src={img}
             alt="ヒーロー画像"
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity ${ANIMATION.DURATION_LONG} ${current === idx ? 'opacity-100' : 'opacity-0'}`}
+            fill
+            className={`object-cover transition-opacity ${ANIMATION.DURATION_LONG} ${current === idx ? 'opacity-100' : 'opacity-0'}`}
             style={{ zIndex: 1 }}
+            priority={idx === 0}
           />
         ))}
         {/* オーバーレイ */}

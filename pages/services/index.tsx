@@ -1,5 +1,6 @@
 // pages/services/index.tsx
 import { GetStaticProps } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { client } from "../../lib/microcms";
 import { Service, ServiceResponse } from "../../types/service";
@@ -26,11 +27,14 @@ export default function Services({ services }: Props) {
                 </h2>
               </Link>
               {service.image && (
-                <img
-                  src={service.image.url}
-                  alt={service.title}
-                  className={`w-full ${IMAGE.HEIGHT} ${IMAGE.COVER} ${IMAGE.ROUNDED} ${IMAGE.SHADOW} ${CARD.MARGIN_BOTTOM}`}
-                />
+                <div className="relative w-full h-40 mb-4">
+                  <Image
+                    src={service.image.url}
+                    alt={service.title}
+                    fill
+                    className={`${IMAGE.COVER} ${IMAGE.ROUNDED} ${IMAGE.SHADOW}`}
+                  />
+                </div>
               )}
               <p className="text-gray-600 text-sm mb-2">料金: {service.price}</p>
               <div

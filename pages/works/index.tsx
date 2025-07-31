@@ -1,5 +1,6 @@
 // pages/works/index.tsx
 import { GetStaticProps } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { client } from "../../lib/microcms";
 import { Work, WorkResponse } from "../../types/work";
@@ -26,11 +27,14 @@ export default function Works({ works }: Props) {
                 </h2>
               </Link>
               {work.image && (
-                <img
-                  src={work.image.url}
-                  alt={work.title}
-                  className={`w-full ${IMAGE.HEIGHT} ${IMAGE.COVER} ${IMAGE.ROUNDED} ${IMAGE.SHADOW} ${CARD.MARGIN_BOTTOM}`}
-                />
+                <div className="relative w-full h-40 mb-4">
+                  <Image
+                    src={work.image.url}
+                    alt={work.title}
+                    fill
+                    className={`${IMAGE.COVER} ${IMAGE.ROUNDED} ${IMAGE.SHADOW}`}
+                  />
+                </div>
               )}
               <div
                 className={`text-sm text-gray-700 ${CARD.MARGIN_BOTTOM} line-clamp-3`}

@@ -1,6 +1,7 @@
 // pages/works/[slug].tsx
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import { client } from "../../lib/microcms";
 import { Work, WorkResponse } from "../../types/work";
@@ -23,11 +24,14 @@ const WorkDetail: NextPage<Props> = ({ work }) => {
         <div className={`${LAYOUT.MAX_WIDTH} mx-auto bg-white ${CARD.SHADOW} ${CARD.ROUNDED} ${CARD.PADDING}`}>
 
         {work.image && (
-          <img
-            src={work.image.url}
-            alt={work.title}
-            className={`w-full ${IMAGE.HEIGHT} ${IMAGE.COVER} ${IMAGE.ROUNDED} ${IMAGE.SHADOW} ${CARD.MARGIN_BOTTOM}`}
-          />
+          <div className="relative w-full h-40 mb-4">
+            <Image
+              src={work.image.url}
+              alt={work.title}
+              fill
+              className={`${IMAGE.COVER} ${IMAGE.ROUNDED} ${IMAGE.SHADOW}`}
+            />
+          </div>
         )}
 
         <div

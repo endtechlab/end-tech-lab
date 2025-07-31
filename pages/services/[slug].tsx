@@ -1,11 +1,11 @@
 // pages/services/[slug].tsx
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import { client } from "../../lib/microcms";
 import { Service, ServiceResponse } from "../../types/service";
-import { LAYOUT, TITLE, CARD, BUTTON } from "../../lib/constants";
-import { ANIMATION } from "../../lib/constants";
+import { LAYOUT, TITLE, CARD, BUTTON, ANIMATION } from "../../lib/constants";
 
 type Props = {
   service: Service;
@@ -24,11 +24,14 @@ const ServiceDetail: NextPage<Props> = ({ service }) => {
         <div className={`${LAYOUT.MAX_WIDTH} mx-auto bg-white ${CARD.SHADOW} ${CARD.ROUNDED} ${CARD.PADDING}`}>
 
         {service.image && (
-          <img
-            src={service.image.url}
-            alt={service.title}
-            className="w-full h-64 object-cover rounded-lg shadow-md mb-6"
-          />
+          <div className="relative w-full h-64 mb-6">
+            <Image
+              src={service.image.url}
+              alt={service.title}
+              fill
+              className="object-cover rounded-lg shadow-md"
+            />
+          </div>
         )}
 
         <p className="text-gray-600 text-sm mb-4">
