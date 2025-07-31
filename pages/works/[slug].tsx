@@ -16,9 +16,11 @@ const WorkDetailPage: NextPage<Props> = ({ work }) => {
         <title>{work.title} | 実績紹介 | End-Tech-Lab</title>
         <meta name="description" content={`${work.title} の詳細ページ`} />
       </Head>
-      <main className="py-12">
+      <main className="max-w-6xl mx-auto px-4 py-12">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-800 mb-12 border-b-2 border-blue-300 pb-2 inline-block max-w-full px-2">{work.title}</h1>
+        </div>
         <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl px-8 py-10">
-          <h1 className="text-3xl font-bold mb-8 text-gray-800 border-b-2 border-blue-300 pb-2 inline-block">{work.title}</h1>
 
       {work.image && (
         <img
