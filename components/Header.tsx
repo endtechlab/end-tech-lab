@@ -18,17 +18,15 @@ const Header = () => {
               <div className={`w-6 h-6 transition-all duration-300 ${isMenuOpen ? 'rotate-90' : ''}`}>
                 <div className="relative w-6 h-6">
                   {/* 上の線 */}
-                  <span className={`absolute left-1/2 w-6 h-0.5 bg-white transition-all duration-300
-                    origin-center
+                  <span className={`absolute left-1/2 w-6 h-0.5 bg-white transition-all duration-300 origin-center
                     ${isMenuOpen
                       ? 'rotate-45 top-1/2 -translate-x-1/2 -translate-y-1/2'
-                      : 'top-1 left-1/2 -translate-x-1/2'
+                      : 'top-[5px] left-1/2 -translate-x-1/2'
                     }`}>
                   </span>
 
                   {/* 中央の線 */}
-                  <span className={`absolute left-1/2 w-6 h-0.5 bg-white transition-all duration-300
-                    origin-center
+                  <span className={`absolute left-1/2 w-6 h-0.5 bg-white transition-all duration-300 origin-center
                     ${isMenuOpen
                       ? 'opacity-0 top-1/2 -translate-x-1/2 -translate-y-1/2'
                       : 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
@@ -36,11 +34,10 @@ const Header = () => {
                   </span>
 
                   {/* 下の線 */}
-                  <span className={`absolute left-1/2 w-6 h-0.5 bg-white transition-all duration-300
-                    origin-center
+                  <span className={`absolute left-1/2 w-6 h-0.5 bg-white transition-all duration-300 origin-center
                     ${isMenuOpen
                       ? '-rotate-45 top-1/2 -translate-x-1/2 -translate-y-1/2'
-                      : 'top-[17px] left-1/2 -translate-x-1/2'
+                      : 'top-[19px] left-1/2 -translate-x-1/2'
                     }`}>
                   </span>
                 </div>
