@@ -20,7 +20,7 @@ const ActivityDetailPage: NextPage<Props> = ({ activity }) => {
         <div>
           <h1 className="text-3xl font-bold text-gray-800 mb-12 border-b-2 border-blue-300 pb-2 inline-block max-w-full px-2">{activity.title}</h1>
         </div>
-        <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl px-8 py-10">
+        <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-xl px-8 py-10">
 
       {activity.publishedAt && (
             <p className="text-gray-600 text-sm mb-4">
