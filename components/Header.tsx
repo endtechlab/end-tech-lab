@@ -19,9 +19,9 @@ const Header = () => {
             aria-label="メニュー"
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
+              <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-0.5' : ''}`}></span>
               <span className={`w-6 h-0.5 bg-white mt-1 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`w-6 h-0.5 bg-white mt-1 transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+              <span className={`w-6 h-0.5 bg-white mt-1 transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-0.5' : ''}`}></span>
             </div>
           </button>
         </div>
@@ -29,8 +29,7 @@ const Header = () => {
         {/* ナビゲーション（PC時は横並び、スマホ時はドロップダウン） */}
         <nav className={`md:flex flex-row flex-wrap md:flex-nowrap gap-4 md:gap-6 text-sm overflow-x-auto w-full md:w-auto justify-center md:justify-end ${isMenuOpen ? 'flex flex-col mt-4 md:mt-0' : 'hidden md:flex'}`}>
         {/* スマホ用ドロップダウンメニュー（絶対位置でオーバーレイ） */}
-        {isMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-gray-800 border-t border-gray-700 md:hidden animate-slideDown">
+        <div className={`absolute top-full left-0 right-0 bg-gray-800 border-t border-gray-700 md:hidden transition-all duration-300 ease-out ${isMenuOpen ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform -translate-y-full pointer-events-none'}`}>
             <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-4">
               <Link href="/services" className="hover:underline whitespace-nowrap py-2 text-white">
                 事業内容
@@ -46,7 +45,6 @@ const Header = () => {
               </Link>
             </div>
           </div>
-        )}
         {/* PC用ナビゲーション */}
         <div className="hidden md:flex flex-row gap-6 text-sm">
           <Link href="/services" className="hover:underline whitespace-nowrap py-2 md:py-0">
