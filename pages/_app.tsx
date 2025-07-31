@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       const headerHeight = headerElement ? headerElement.offsetHeight : 80;
       
       // タイトルにより近い位置にスクロール位置を設定
-      const scrollPosition = headerHeight - 30;
+      const scrollPosition = headerHeight - 50;
       window.scrollTo(0, scrollPosition);
     };
 
