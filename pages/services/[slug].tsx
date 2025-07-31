@@ -57,7 +57,9 @@ export default ServiceDetail;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await client.get<ServiceResponse>({ endpoint: "services" });
-  const paths = data.contents.map((service) => `/services/${service.slug}`);
+  const paths = data.contents.map((service) => ({
+    params: { slug: service.slug },
+  }));
   return { paths, fallback: false };
 };
 

@@ -65,7 +65,9 @@ export default WorkDetail;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await client.get<WorkResponse>({ endpoint: "works" });
-  const paths = data.contents.map((work) => `/works/${work.slug}`);
+  const paths = data.contents.map((work) => ({
+    params: { slug: work.slug },
+  }));
   return { paths, fallback: false };
 };
 

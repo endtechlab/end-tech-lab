@@ -50,7 +50,9 @@ export default ActivityDetail;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await client.get<ActivityResponse>({ endpoint: "activities" });
-  const paths = data.contents.map((activity) => `/activities/${activity.slug}`);
+  const paths = data.contents.map((activity) => ({
+    params: { slug: activity.slug },
+  }));
   return { paths, fallback: false };
 };
 
