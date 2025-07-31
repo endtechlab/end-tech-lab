@@ -10,9 +10,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
-    // ルート変更時にページの先頭にスクロール
+    // ルート変更時にタイトルが見える位置にスクロール
     const handleRouteChange = () => {
-      window.scrollTo(0, 0);
+      // ヘッダーの高さ分を考慮してスクロール位置を調整
+      const headerHeight = 80; // ヘッダーの概算高さ（px）
+      window.scrollTo(0, headerHeight);
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);
