@@ -18,7 +18,7 @@ const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="メニュー"
           >
-            <div className="w-6 h-6 flex flex-col justify-center items-center relative">
+            <div className={`w-6 h-6 flex flex-col ${isMenuOpen ? 'justify-center items-start' : 'justify-center items-center'} relative`}>
               <span className={`${isMenuOpen ? 'w-3' : 'w-6'} h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45' : ''} ${isMenuOpen ? 'ml-0' : ''}`}></span>
               <span className={`${isMenuOpen ? 'w-3' : 'w-6'} h-0.5 bg-white mt-1 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''} ${isMenuOpen ? 'ml-0' : ''}`}></span>
               <span className={`${isMenuOpen ? 'w-3' : 'w-6'} h-0.5 bg-white mt-1 transition-all duration-300 ${isMenuOpen ? '-rotate-45' : ''} ${isMenuOpen ? 'ml-0' : ''}`}></span>
