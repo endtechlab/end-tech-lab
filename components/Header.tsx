@@ -19,25 +19,14 @@ const Header = () => {
             aria-label="メニュー"
           >
             <div className="w-6 h-6 relative">
-              {/* ハンバーガーアイコン（3本線） */}
-              <svg 
-                className={`w-6 h-6 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-              
-              {/* ✕アイコン */}
-              <svg 
-                className={`w-6 h-6 absolute inset-0 transition-all duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0'}`}
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              {/* アニメーション付きハンバーガーアイコン */}
+              <div className={`w-6 h-6 transition-all duration-300 ${isMenuOpen ? 'rotate-90' : ''}`}>
+                <div className="w-6 h-6 flex flex-col justify-center items-center">
+                  <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
+                  <span className={`w-6 h-0.5 bg-white mt-1 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                  <span className={`w-6 h-0.5 bg-white mt-1 transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+                </div>
+              </div>
             </div>
           </button>
         </div>
