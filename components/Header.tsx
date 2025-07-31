@@ -14,34 +14,21 @@ const Header = () => {
           </h1>
           {/* ハンバーガーメニューボタン（スマホのみ表示） */}
           <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="メニュー">
-            <div className="w-6 h-6 relative">
-              <div className={`w-6 h-6 transition-all duration-300 ${isMenuOpen ? 'rotate-90' : ''}`}>
-                <div className="relative w-6 h-6">
-                  {/* 上の線 */}
-                  <span className={`absolute left-1/2 w-6 h-0.5 bg-white transition-all duration-300 origin-center
-                    ${isMenuOpen
-                      ? 'rotate-45 top-1/2 -translate-x-1/2 -translate-y-1/2'
-                      : 'top-[5px] left-1/2 -translate-x-1/2'
-                    }`}>
-                  </span>
+            <div className="relative w-6 h-6 flex flex-col justify-center items-center gap-y-1">
+              {/* 1本目 */}
+              <span className={`w-6 h-0.5 bg-white transition-all duration-300 origin-center
+                ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}
+              `}></span>
 
-                  {/* 中央の線 */}
-                  <span className={`absolute left-1/2 w-6 h-0.5 bg-white transition-all duration-300 origin-center
-                    ${isMenuOpen
-                      ? 'opacity-0 top-1/2 -translate-x-1/2 -translate-y-1/2'
-                      : 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
-                    }`}>
-                  </span>
+              {/* 2本目 */}
+              <span className={`w-6 h-0.5 bg-white transition-all duration-300 origin-center
+                ${isMenuOpen ? 'opacity-0' : ''}
+              `}></span>
 
-                  {/* 下の線 */}
-                  <span className={`absolute left-1/2 w-6 h-0.5 bg-white transition-all duration-300 origin-center
-                    ${isMenuOpen
-                      ? '-rotate-45 top-1/2 -translate-x-1/2 -translate-y-1/2'
-                      : 'top-[19px] left-1/2 -translate-x-1/2'
-                    }`}>
-                  </span>
-                </div>
-              </div>
+              {/* 3本目 */}
+              <span className={`w-6 h-0.5 bg-white transition-all duration-300 origin-center
+                ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}
+              `}></span>
             </div>
           </button>
         </div>
