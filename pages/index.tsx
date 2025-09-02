@@ -54,12 +54,12 @@ export default function Home({ news }: { news: News[] }) {
         {/* 最新情報セクション */}
         <section className="max-w-6xl mx-auto mb-8 px-4">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-300 pb-2 inline-block">最新情報・お知らせ</h2>
-          <ul className="divide-y divide-gray-200 bg-white rounded-xl shadow">
+          <ul className="divide-y divide-gray-100 bg-white rounded-xl shadow">
             {news.length === 0 && (
               <li className="p-4 text-gray-500">現在お知らせはありません。</li>
             )}
             {news.map((item) => (
-              <li key={item.id} className="p-4 flex flex-col md:flex-row md:items-center gap-2">
+              <li key={item.id} className="p-4 flex flex-col md:flex-row md:items-center gap-1">
                 <span className="text-sm text-gray-500 min-w-[7em] md:text-left md:w-36">
                   {item.createdAt ? new Date(item.createdAt).toLocaleDateString("ja-JP") : ""}
                 </span>
