@@ -4,6 +4,7 @@ export type News = {
   title: string;
   body: string;
   createdAt: string;
+  publishedAt?: string;
   slug?: string;
 };
 
