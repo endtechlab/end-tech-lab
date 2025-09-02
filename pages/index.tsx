@@ -63,7 +63,7 @@ export default function Home({ news }: { news: News[] }) {
                 <span className="text-sm text-gray-500 min-w-[3.5em] md:text-left md:w-20 mr-2">
                   {item.publishedAt ? new Date(item.publishedAt).toLocaleDateString("ja-JP") : (item.createdAt ? new Date(item.createdAt).toLocaleDateString("ja-JP") : "")}
                 </span>
-                <span className="font-medium text-gray-800 flex-1">{item.title}</span>
+                <span className="font-medium text-gray-800 flex-1" dangerouslySetInnerHTML={{ __html: item.title }} />
               </li>
             ))}
           </ul>
