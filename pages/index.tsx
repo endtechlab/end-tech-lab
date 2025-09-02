@@ -59,7 +59,7 @@ export default function Home({ news }: { news: News[] }) {
               <li className="p-4 text-gray-500">現在お知らせはありません。</li>
             )}
             {news.map((item) => (
-              <li key={item.id} className="p-4 flex flex-col md:flex-row md:items-center gap-1">
+              <li key={item.id} className="p-4 flex flex-col md:flex-row md:items-center gap-0">
                 <span className="text-sm text-gray-500 min-w-[7em] md:text-left md:w-36">
                   {item.publishedAt ? new Date(item.publishedAt).toLocaleDateString("ja-JP") : (item.createdAt ? new Date(item.createdAt).toLocaleDateString("ja-JP") : "")}
                 </span>
