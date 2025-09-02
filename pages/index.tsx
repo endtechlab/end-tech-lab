@@ -98,6 +98,26 @@ export default function Home({ news }: { news: News[] }) {
             </div>
           </Link>
         </section>
+
+        {/* お問い合わせへの導線セクション */}
+        <section className="max-w-4xl mx-auto mb-12 px-4">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 md:p-8 text-center">
+            <h3 className="text-lg md:text-xl font-medium text-gray-800 mb-3">
+              お困りのことはありませんか？
+            </h3>
+            <p className="text-sm md:text-base text-gray-600 mb-6">
+              IT導入やホームページ制作など、お気軽にご相談ください。
+            </p>
+            <Link href="/contact">
+              <div className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200">
+                お問い合わせはこちら
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
+          </div>
+        </section>
       </main>
     </>
   );
