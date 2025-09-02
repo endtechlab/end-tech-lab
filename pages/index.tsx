@@ -98,6 +98,26 @@ export default function Home({ news }: { news: News[] }) {
             </div>
           </Link>
         </section>
+
+        {/* お問い合わせへの導線セクション */}
+        <section className="max-w-6xl mx-auto mb-8 px-4">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl shadow-2xl p-8 md:p-12 text-center text-white">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                お困りのことはありませんか？
+              </h2>
+              <p className="text-lg md:text-xl mb-6 text-blue-100">
+                IT導入やホームページ制作など、お気軽にご相談ください。<br />
+                専門スタッフが丁寧にサポートいたします。
+              </p>
+              <Link href="/contact">
+                <div className="inline-block bg-white text-blue-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                  お気軽にお問い合わせください →
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );
