@@ -98,15 +98,6 @@ export default function Home({ news }: { news: News[] }) {
             </div>
           </Link>
         </section>
-
-        {/* お問い合わせへの導線セクション */}
-        <section className="max-w-6xl mx-auto mb-8 px-4">
-          <Link href="/contact">
-            <div className="inline-block bg-white text-blue-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              お問い合わせはコチラ →
-            </div>
-          </Link>
-        </section>
       </main>
     </>
   );
