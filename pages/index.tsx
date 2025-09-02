@@ -100,7 +100,7 @@ export default function Home({ news }: { news: News[] }) {
         </section>
 
         {/* お問い合わせへの導線セクション */}
-        <section className="max-w-4xl mx-auto mb-12 px-4">
+        <section className="max-w-2xl mx-auto mb-12 px-4 mt-12">
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 md:p-8 text-center">
             <h3 className="text-lg md:text-xl font-medium text-gray-800 mb-3">
               お困りのことはありませんか？
