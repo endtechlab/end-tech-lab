@@ -35,7 +35,7 @@ const ServiceDetail: NextPage<Props> = ({ service }) => {
         )}
 
         <p className="text-gray-600 text-sm mb-4">
-          <span className="font-semibold">料金:</span> {service.price}
+          <span className="font-semibold">予算目安:</span> {service.price}
         </p>
 
         <div

@@ -42,7 +42,7 @@ export default function Services({ services }: Props) {
                     />
                   </div>
                 )}
-                <p className="text-gray-600 text-sm mb-2">料金: {service.price}</p>
+                <p className="text-gray-600 text-sm mb-2">予算目安: {service.price}</p>
                 <div
                   className={`text-sm text-gray-700 ${CARD.MARGIN_BOTTOM} line-clamp-3`}
                   dangerouslySetInnerHTML={{ __html: service.description }}
