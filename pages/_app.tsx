@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>End Tech Lab - エンドテックラボ</title>
-        <meta name="description" content="End Tech Lab（エンドテックラボ）は、最新のテクノロジーを活用したソリューションを提供する企業です。" />
+        <meta name="description" content="End Tech Lab（エンドテックラボ）は、IT導入・ホームページ制作など、最新のテクノロジーを活用したソリューションを提供しています。" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         {/* ファビコン設定 */}
