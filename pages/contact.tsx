@@ -25,7 +25,7 @@ export default function Contact() {
           
           <div className="relative overflow-auto" style={{height: FORM.HEIGHT}}>
             <iframe
-              src="https://tally.so/embed/w2ppKM?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              src="https://tally.so/embed/w2ppKM?hideTitle=1&transparentBackground=1&dynamicHeight=1"
               width="100%"
               height="100%"
               style={{ border: "none", margin: 0, minHeight: FORM.MIN_HEIGHT, height: '100%' }}
