@@ -9,7 +9,7 @@ export default function Contact() {
         <title>お問い合わせ | End Tech Lab - エンドテックラボ</title>
         <meta name="description" content="End Tech Lab（エンドテックラボ）へのお問い合わせはこちらから。IT導入・ホームページ制作など、お気軽にご相談ください。" />
       </Head>
-      <main className="max-w-4xl mx-auto px-4 py-12">
+      <main className="max-w-4xl mx-auto px-4 py-8">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">お問い合わせ</h1>
           <p className="text-gray-600 text-lg">
@@ -39,7 +39,7 @@ export default function Contact() {
           </div>
         </div>
         
-        <div className="mt-8 text-center mb-4">
+        <div className="mt-8 text-center">
           <div className="bg-gray-50 rounded-lg p-6">
             <h3 className="text-lg font-medium text-gray-800 mb-3">その他のお問い合わせ方法</h3>
             <p className="text-gray-600 text-sm">
