@@ -78,8 +78,8 @@ export const HERO = {
 
 // フォーム関連の定数
 export const FORM = {
-  MIN_HEIGHT: '1000px',
-  HEIGHT: '1000px',
+  MIN_HEIGHT: '800px',
+  HEIGHT: '800px',
 } as const;
 
 // スクロール関連の定数
