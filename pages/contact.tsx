@@ -25,7 +25,7 @@ export default function Contact() {
           
           <div className="relative" style={{height: FORM.HEIGHT}}>
             <iframe
-              src="https://tally.so/r/nP77zx"
+              src="https://tally.so/embed/nP77zx?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
               width="100%"
               height="100%"
               style={{ border: "none", margin: 0, minHeight: FORM.MIN_HEIGHT, height: '100%' }}
