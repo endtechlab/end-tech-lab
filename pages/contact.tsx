@@ -13,7 +13,7 @@ export default function Contact() {
         <h1 className="text-3xl font-bold text-gray-800 mb-12 border-b-2 border-blue-300 pb-2 inline-block max-w-full px-2">お問い合わせ</h1>
         <div className="w-full max-w-6xl bg-white rounded-xl shadow-lg overflow-auto" style={{height: FORM.HEIGHT}}>
           <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSfVbYzMZrrphw5toUWff0xXXIawo-dVzWdPpeJF6RW2I1TPtg/viewform?embedded=true"
+            src="https://tally.so/r/nP77zx"
             width="100%"
             height="100%"
             style={{ border: "none", margin: 0, minHeight: FORM.MIN_HEIGHT, height: '100%' }}
