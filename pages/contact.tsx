@@ -23,7 +23,7 @@ export default function Contact() {
             <p className="text-sm text-gray-600 mt-1">以下のフォームにご記入ください</p>
           </div>
           
-          <div className="relative" style={{height: FORM.HEIGHT}}>
+          <div className="relative overflow-auto" style={{height: FORM.HEIGHT}}>
             <iframe
               src="https://tally.so/embed/nP77zx?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
               width="100%"
