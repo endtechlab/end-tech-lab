@@ -39,7 +39,7 @@ export default function Contact() {
           </div>
         </div>
         
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-center mb-4">
           <div className="bg-gray-50 rounded-lg p-6">
             <h3 className="text-lg font-medium text-gray-800 mb-3">その他のお問い合わせ方法</h3>
             <p className="text-gray-600 text-sm">
