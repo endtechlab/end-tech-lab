@@ -38,17 +38,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         {/* ファビコン設定 */}
-        <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1" />
-        <link rel="shortcut icon" href="/favicon.ico?v=1" />
-        <link rel="icon" sizes="16x16" type="image/x-icon" href="/favicon.ico?v=1" />
-        <link rel="icon" sizes="32x32" type="image/x-icon" href="/favicon.ico?v=1" />
+        <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+        <link rel="shortcut icon" type="image/svg+xml" href="/logo.svg" />
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/logo.svg" />
         
         {/* Chrome用の追加設定 */}
-        <meta name="msapplication-TileImage" content="/favicon.ico?v=1" />
-        <meta name="msapplication-config" content="/favicon.ico?v=1" />
+        <meta name="msapplication-TileImage" content="/logo.svg" />
         
         {/* Apple Touch Icon */}
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.svg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo.svg" />
         
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />

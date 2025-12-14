@@ -1,5 +1,6 @@
 // components/Header.tsx
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { HAMBURGER } from "../lib/constants";
 
@@ -10,8 +11,18 @@ const Header = () => {
     <header className="bg-gray-800 text-white sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center md:justify-between gap-2 md:gap-0">
         <div className="flex items-center justify-between w-full md:w-auto">
-          <h1 className="text-xl font-bold flex-shrink-0 whitespace-nowrap">
-            <Link href="/">End-Tech-Lab</Link>
+          <h1 className="text-xl font-bold flex-shrink-0 whitespace-nowrap flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
+              <Image
+                src="/logo.svg"
+                alt="End Tech Lab"
+                width={32}
+                height={32}
+                className="flex-shrink-0"
+                priority
+              />
+              <span>End-Tech-Lab</span>
+            </Link>
           </h1>
           {/* ハンバーガーメニューボタン（スマホのみ表示） */}
           <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="メニュー">
