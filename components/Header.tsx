@@ -16,8 +16,8 @@ const Header = () => {
               <Image
                 src="/logo.svg"
                 alt="End Tech Lab"
-                width={40}
-                height={40}
+                width={48}
+                height={48}
                 className="flex-shrink-0"
                 priority
               />
