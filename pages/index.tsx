@@ -1,26 +1,13 @@
 // pages/index.tsx
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { client } from "../lib/microcms";
 import { News, NewsResponse } from "../types/news";
-import { HERO, ANIMATION, CACHE, SLIDESHOW } from "../lib/constants";
+import { HERO, CACHE } from "../lib/constants";
 
 export default function Home({ news }: { news: News[] }) {
-  const images = [
-    "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
-  ];
-  const [current, setCurrent] = useState(0);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, SLIDESHOW.INTERVAL);
-    return () => clearInterval(timer);
-  }, [images.length]);
 
   return (
     <>
@@ -30,18 +17,15 @@ export default function Home({ news }: { news: News[] }) {
       </Head>
       <main>
         <section className={`relative ${HERO.HEIGHT_MOBILE} ${HERO.HEIGHT_DESKTOP} flex items-center justify-center mb-8 overflow-hidden shadow-lg max-w-6xl mx-auto px-4`}>
-          {/* スライドショー背景 */}
-          {images.map((img, idx) => (
-            <Image
-              key={img}
-              src={img}
-              alt="ヒーロー画像"
-              fill
-              className={`object-cover transition-opacity ${ANIMATION.DURATION_LONG} ${current === idx ? 'opacity-100' : 'opacity-0'}`}
-              style={{ zIndex: 1 }}
-              priority={idx === 0}
-            />
-          ))}
+          {/* ヒーロー画像 */}
+          <Image
+            src="/hero_image.png"
+            alt="ヒーロー画像"
+            fill
+            className="object-cover object-right md:object-center"
+            style={{ zIndex: 1 }}
+            priority
+          />
           {/* オーバーレイ */}
           <div className={`absolute inset-0 ${HERO.OVERLAY_OPACITY} ${HERO.Z_INDEX_OVERLAY}`} />
           {/* テキスト */}
