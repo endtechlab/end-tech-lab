@@ -2,25 +2,50 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { HAMBURGER } from "../lib/constants";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isIconBouncing, setIsIconBouncing] = useState(false);
+  const router = useRouter();
+
+  const handleIconClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // アイコンの跳ねるアニメーション
+    setIsIconBouncing(true);
+    setTimeout(() => setIsIconBouncing(false), 300);
+
+    if (router.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const handleTitleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (router.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <header className="bg-gray-800 text-white sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center md:justify-between gap-2 md:gap-0">
         <div className="flex items-center justify-between w-full md:w-auto">
           <h1 className="text-xl font-bold flex-shrink-0 whitespace-nowrap flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" onClick={handleIconClick} className="flex-shrink-0">
               <Image
                 src="/logo.svg"
                 alt="End Tech Lab"
                 width={48}
                 height={48}
-                className="flex-shrink-0"
+                className={`flex-shrink-0 ${
+                  isIconBouncing ? "animate-bounceIcon" : ""
+                }`}
                 priority
               />
+            </Link>
+            <Link href="/" onClick={handleTitleClick} className="no-underline">
               <span>End-Tech-Lab</span>
             </Link>
           </h1>
@@ -47,9 +72,6 @@ const Header = () => {
         
         {/* PC用ナビゲーション */}
         <nav className="hidden md:flex flex-row gap-6 text-sm">
-          <Link href="/services" className="hover:underline whitespace-nowrap py-2 md:py-0">
-            事業内容
-          </Link>
           <Link href="/activities" className="hover:underline whitespace-nowrap py-2 md:py-0">
             活動報告
           </Link>
@@ -73,9 +95,6 @@ const Header = () => {
       {/* スマホ用ドロップダウンメニュー（裏から出てくるアニメーション） */}
       <div className={`absolute top-full left-0 right-0 bg-gray-800 border-t border-gray-700 md:hidden z-40 transition-all duration-300 ease-out ${isMenuOpen ? 'opacity-100 transform scale-y-100 origin-top' : 'opacity-0 transform scale-y-0 origin-top pointer-events-none'}`}>
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-4">
-          <Link href="/services" className="hover:underline whitespace-nowrap py-2 text-white" onClick={() => setIsMenuOpen(false)}>
-            事業内容
-          </Link>
           <Link href="/activities" className="hover:underline whitespace-nowrap py-2 text-white" onClick={() => setIsMenuOpen(false)}>
             活動報告
           </Link>

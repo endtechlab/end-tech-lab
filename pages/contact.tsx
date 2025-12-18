@@ -9,7 +9,7 @@ export default function Contact() {
         <title>お問い合わせ | End Tech Lab - エンドテックラボ</title>
         <meta name="description" content="End Tech Lab（エンドテックラボ）へのお問い合わせはこちらから。IT導入・ホームページ制作など、お気軽にご相談ください。" />
       </Head>
-      <main className="max-w-4xl mx-auto px-4 py-6">
+      <main className="max-w-4xl mx-auto px-4 py-12">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">お問い合わせ</h1>
           <p className="text-gray-600 text-lg">

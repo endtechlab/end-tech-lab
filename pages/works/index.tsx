@@ -32,6 +32,11 @@ export default function Works({ works }: Props) {
                     {work.title}
                   </h2>
                 </Link>
+                {work.publishedAt && (
+                  <p className="text-gray-600 text-sm mb-2">
+                    <span className="font-semibold">公開日:</span> {new Date(work.publishedAt).toLocaleDateString("ja-JP")}
+                  </p>
+                )}
                 {work.image && (
                   <div className="relative w-full h-40 mb-4">
                     <Image

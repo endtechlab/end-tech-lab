@@ -9,6 +9,7 @@ export type Work = {
       width: number;
     };
     url?: string;
+    publishedAt?: string;
   };
   
   export type WorkResponse = {
