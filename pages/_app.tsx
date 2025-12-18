@@ -37,15 +37,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="End Tech Lab（エンドテックラボ）は、IT導入・ホームページ制作など、最新のテクノロジーを活用したソリューションを提供しています。" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
-        {/* ファビコン設定 */}
+        {/* ファビコン設定 - logo.svgを優先 */}
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+        <link rel="alternate icon" type="image/svg+xml" href="/logo.svg" />
         <link rel="shortcut icon" type="image/svg+xml" href="/logo.svg" />
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/logo.svg" />
         
         {/* Chrome用の追加設定 */}
         <meta name="msapplication-TileImage" content="/logo.svg" />
         
-        {/* Apple Touch Icon */}
+        {/* Apple Touch Icon - iPhone用 */}
+        <link rel="apple-touch-icon" href="/logo.svg" />
         <link rel="apple-touch-icon" sizes="180x180" href="/logo.svg" />
         
         {/* PWA Manifest */}
