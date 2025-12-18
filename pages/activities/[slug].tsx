@@ -34,10 +34,8 @@ const ActivityDetail: NextPage<Props> = ({ activity }) => {
         />
 
         <div className={CARD.MARGIN_TOP}>
-          <Link href="/activities">
-            <a className={`inline-block bg-blue-50 hover:bg-blue-100 text-blue-800 ${BUTTON.FONT_WEIGHT} ${BUTTON.PADDING} ${BUTTON.ROUNDED} ${ANIMATION.TRANSITION_COLORS} border border-blue-100 shadow-sm`}>
-              ← 活動報告一覧に戻る
-            </a>
+          <Link href="/activities" className={`inline-block bg-blue-50 hover:bg-blue-100 text-blue-800 ${BUTTON.FONT_WEIGHT} ${BUTTON.PADDING} ${BUTTON.ROUNDED} ${ANIMATION.TRANSITION_COLORS} border border-blue-100 shadow-sm`}>
+            ← 活動報告一覧に戻る
           </Link>
         </div>
         </div>

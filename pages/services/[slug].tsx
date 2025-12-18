@@ -44,10 +44,8 @@ const ServiceDetail: NextPage<Props> = ({ service }) => {
         />
 
         <div className={CARD.MARGIN_TOP}>
-          <Link href="/services">
-            <a className={`inline-block bg-blue-50 hover:bg-blue-100 text-blue-800 ${BUTTON.FONT_WEIGHT} ${BUTTON.PADDING} ${BUTTON.ROUNDED} ${ANIMATION.TRANSITION_COLORS} border border-blue-100 shadow-sm`}>
-              ← 事業内容一覧に戻る
-            </a>
+          <Link href="/services" className={`inline-block bg-blue-50 hover:bg-blue-100 text-blue-800 ${BUTTON.FONT_WEIGHT} ${BUTTON.PADDING} ${BUTTON.ROUNDED} ${ANIMATION.TRANSITION_COLORS} border border-blue-100 shadow-sm`}>
+            ← 事業内容一覧に戻る
           </Link>
         </div>
         </div>

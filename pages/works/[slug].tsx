@@ -53,10 +53,8 @@ const WorkDetail: NextPage<Props> = ({ work }) => {
         )}
 
         <div className={CARD.MARGIN_TOP}>
-          <Link href="/works">
-            <a className={`inline-block bg-blue-50 hover:bg-blue-100 text-blue-800 ${BUTTON.FONT_WEIGHT} ${BUTTON.PADDING} ${BUTTON.ROUNDED} ${ANIMATION.TRANSITION_COLORS} border border-blue-100 shadow-sm`}>
-              ← 実績一覧に戻る
-            </a>
+          <Link href="/works" className={`inline-block bg-blue-50 hover:bg-blue-100 text-blue-800 ${BUTTON.FONT_WEIGHT} ${BUTTON.PADDING} ${BUTTON.ROUNDED} ${ANIMATION.TRANSITION_COLORS} border border-blue-100 shadow-sm`}>
+            ← 実績一覧に戻る
           </Link>
         </div>
         </div>
