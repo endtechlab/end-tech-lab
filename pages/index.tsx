@@ -46,8 +46,8 @@ export default function Home({ news }: { news: News[] }) {
         </section>
 
         {/* 自己紹介セクション */}
-        <section className="max-w-6xl mx-auto mb-8 px-3 md:px-4">
-          <div className="bg-white rounded-xl shadow-lg p-5 md:p-12">
+        <section className="max-w-6xl mx-auto mb-8 px-1 md:px-4">
+          <div className="bg-white rounded-xl shadow-lg p-4 md:p-12">
             <div className="flex flex-col md:flex-row items-center md:items-center md:justify-center gap-6 md:gap-8 md:px-8">
               {/* アイコン */}
               <div className="flex-shrink-0">
@@ -56,7 +56,7 @@ export default function Home({ news }: { news: News[] }) {
                   alt="プロフィールアイコン"
                   width={180}
                   height={180}
-                  className="rounded-full object-cover"
+                  className="rounded-full object-cover border-2 border-gray-200"
                 />
               </div>
               
@@ -66,7 +66,7 @@ export default function Home({ news }: { news: News[] }) {
                 <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full w-0 h-0 border-t-[14px] border-t-transparent border-r-[14px] border-r-gray-200 border-b-[14px] border-b-transparent"></div>
                 <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[calc(100%-1px)] w-0 h-0 border-t-[12px] border-t-transparent border-r-[12px] border-r-white border-b-[12px] border-b-transparent"></div>
                 
-                <div className="bg-gray-50 md:bg-white border border-gray-200 md:border-gray-200 rounded-lg md:rounded-xl p-5 md:p-6 md:shadow-md relative">
+                <div className="bg-gray-50 md:bg-white border border-gray-200 md:border-gray-200 rounded-lg md:rounded-xl p-3 md:p-6 md:shadow-md relative">
                   <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-5 border-b-2 border-blue-300 pb-2 inline-block">自己紹介</h2>
                   <div className="text-sm md:text-base text-gray-700 mb-6 md:mb-0 leading-relaxed md:leading-loose space-y-3 md:space-y-4">
                     <p>
@@ -90,15 +90,15 @@ export default function Home({ news }: { news: News[] }) {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-4 md:gap-6">
                 <div className="bg-gray-50 md:bg-gray-50 rounded-lg p-4 border-l-2 border-blue-300 border-b md:border-b-0">
                   <div className="text-sm md:text-base font-semibold text-gray-800 mb-2">要件整理・仕様策定</div>
-                  <div className="text-xs md:text-sm text-gray-600 leading-relaxed">お客様の要望をヒアリングし、明確な仕様として整理いたします。</div>
+                  <div className="text-sm md:text-sm text-gray-600 leading-relaxed">お客様の要望をヒアリングし、明確な仕様として整理いたします。</div>
                 </div>
                 <div className="bg-gray-50 md:bg-gray-50 rounded-lg p-4 border-l-2 border-green-400 border-b md:border-b-0">
                   <div className="text-sm md:text-base font-semibold text-gray-800 mb-2">Webシステム設計・開発</div>
-                  <div className="text-xs md:text-sm text-gray-600 leading-relaxed">要件に基づいた設計から実装まで、一貫して対応いたします。</div>
+                  <div className="text-sm md:text-sm text-gray-600 leading-relaxed">要件に基づいた設計から実装まで、一貫して対応いたします。</div>
                 </div>
                 <div className="bg-gray-50 md:bg-gray-50 rounded-lg p-4 border-l-2 border-purple-400">
                   <div className="text-sm md:text-base font-semibold text-gray-800 mb-2">運用・改善サポート</div>
-                  <div className="text-xs md:text-sm text-gray-600 leading-relaxed">システムの運用支援から継続的な改善までサポートいたします。</div>
+                  <div className="text-sm md:text-sm text-gray-600 leading-relaxed">システムの運用支援から継続的な改善までサポートいたします。</div>
                 </div>
               </div>
             </div>
@@ -176,11 +176,11 @@ export default function Home({ news }: { news: News[] }) {
               <li className="p-4 text-gray-500">現在お知らせはありません。</li>
             )}
             {news.map((item) => (
-              <li key={item.id} className="p-4 flex flex-col md:flex-row md:items-center gap-0">
-                <span className="text-sm text-gray-500 min-w-[3.5em] md:text-left md:w-20 mr-2">
+              <li key={item.id} className="py-3 px-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-0">
+                <span className="text-sm text-gray-500 min-w-[3.5em] md:text-left md:w-20 md:mr-3">
                   {item.publishedAt ? new Date(item.publishedAt).toLocaleDateString("ja-JP") : (item.createdAt ? new Date(item.createdAt).toLocaleDateString("ja-JP") : "")}
                 </span>
-                <span className="font-medium text-gray-800 flex-1" dangerouslySetInnerHTML={{ __html: item.title }} />
+                <span className="text-sm font-medium text-gray-800 flex-1" dangerouslySetInnerHTML={{ __html: item.title }} />
               </li>
             ))}
           </ul>
