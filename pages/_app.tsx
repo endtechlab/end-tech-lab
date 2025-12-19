@@ -56,7 +56,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content="#3B82F6" />
         <meta name="msapplication-TileColor" content="#3B82F6" />
       </Head>
-      <div className="flex flex-col min-h-screen bg-gray-50">
+      <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-1">
           <Component {...pageProps} />

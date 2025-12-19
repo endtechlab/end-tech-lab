@@ -25,7 +25,7 @@ export default function Home({ news }: { news: News[] }) {
         <title>End Tech Lab - エンドテックラボ | ホーム</title>
         <meta name="description" content="End Tech Lab（エンドテックラボ）の公式サイトです。IT導入・ホームページ制作など、最新のテクノロジーを活用したソリューションを提供しています。" />
       </Head>
-      <main>
+      <div>
         <section className={`relative ${HERO.HEIGHT_MOBILE} ${HERO.HEIGHT_DESKTOP} flex items-center justify-center mb-8 overflow-hidden shadow-lg max-w-6xl mx-auto px-4`}>
           {/* ヒーロー画像 */}
           <Image
@@ -206,7 +206,7 @@ export default function Home({ news }: { news: News[] }) {
             </Link>
           </div>
         </section>
-      </main>
+      </div>
     </>
   );
 }
