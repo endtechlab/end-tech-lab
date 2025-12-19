@@ -62,11 +62,12 @@ export default function Home({ news }: { news: News[] }) {
               
               {/* 自己紹介 - 吹き出し */}
               <div className="flex-1 md:flex-none md:max-w-2xl text-center md:text-left relative">
-                {/* PC表示時の吹き出しのしっぽ（アイコンから伸びる） */}
-                <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full w-0 h-0 border-t-[14px] border-t-transparent border-r-[14px] border-r-gray-200 border-b-[14px] border-b-transparent"></div>
-                <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[calc(100%-1px)] w-0 h-0 border-t-[12px] border-t-transparent border-r-[12px] border-r-white border-b-[12px] border-b-transparent"></div>
-                
-                <div className="bg-gray-50 md:bg-white border border-gray-200 md:border-gray-200 rounded-lg md:rounded-xl p-3 md:p-6 md:shadow-md relative">
+                <div className="bg-gray-50 md:bg-white border-t border-r border-b border-gray-200 md:border-gray-200 rounded-lg md:rounded-xl p-3 md:p-6 md:shadow-md relative md:ml-4 overflow-visible">
+                  {/* PC表示時の吹き出しのしっぽ（アイコンから伸びる） */}
+                  <div className="hidden md:block absolute -left-4 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[16px] border-t-transparent border-r-[16px] border-r-gray-200 border-b-[16px] border-b-transparent z-10"></div>
+                  <div className="hidden md:block absolute -left-[15px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[14px] border-t-transparent border-r-[14px] border-r-white border-b-[14px] border-b-transparent z-20"></div>
+                  {/* 接合部の線を隠すためのマスク */}
+                  <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[1px] w-[1px] h-[28px] bg-white z-30"></div>
                   <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-5 border-b-2 border-blue-300 pb-2 inline-block">自己紹介</h2>
                   <div className="text-sm md:text-base text-gray-700 mb-6 md:mb-0 leading-relaxed md:leading-loose space-y-3 md:space-y-4">
                     <p>
