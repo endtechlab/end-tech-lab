@@ -5,6 +5,7 @@ import Head from "next/head";
 import { client } from "../../lib/microcms";
 import { Activity, ActivityResponse } from "../../types/activity";
 import { LAYOUT, TITLE, CARD, ANIMATION } from "../../lib/constants";
+import { formatDateJa } from "../../lib/formatDate";
 
 type Props = {
   activities: Activity[];
@@ -30,7 +31,7 @@ export default function Activities({ activities }: Props) {
                 </Link>
                 {activity.publishedAt && (
                   <p className="text-gray-600 text-sm mb-2">
-                    <span className="font-semibold">公開日:</span> {new Date(activity.publishedAt).toLocaleDateString("ja-JP")}
+                    <span className="font-semibold">公開日:</span> {formatDateJa(activity.publishedAt)}
                   </p>
                 )}
                 <div

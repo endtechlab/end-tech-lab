@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { client } from "../lib/microcms";
 import { News, NewsResponse } from "../types/news";
 import { HERO, CACHE } from "../lib/constants";
+import { formatDateJa } from "../lib/formatDate";
 
 export default function Home({ news }: { news: News[] }) {
   const router = useRouter();
@@ -178,7 +179,7 @@ export default function Home({ news }: { news: News[] }) {
             {news.map((item) => (
               <li key={item.id} className="py-3 px-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-0">
                 <span className="text-sm text-gray-500 min-w-[3.5em] md:text-left md:w-20 md:mr-3">
-                  {item.publishedAt ? new Date(item.publishedAt).toLocaleDateString("ja-JP") : (item.createdAt ? new Date(item.createdAt).toLocaleDateString("ja-JP") : "")}
+                  {formatDateJa(item.publishedAt ?? item.createdAt)}
                 </span>
                 <span className="text-sm font-medium text-gray-800 flex-1" dangerouslySetInnerHTML={{ __html: item.title }} />
               </li>

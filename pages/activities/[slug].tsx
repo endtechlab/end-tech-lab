@@ -5,6 +5,7 @@ import Link from "next/link";
 import { client } from "../../lib/microcms";
 import { Activity, ActivityResponse } from "../../types/activity";
 import { LAYOUT, TITLE, CARD, BUTTON, ANIMATION } from "../../lib/constants";
+import { formatDateJa } from "../../lib/formatDate";
 
 type Props = {
   activity: Activity;
@@ -24,7 +25,7 @@ const ActivityDetail: NextPage<Props> = ({ activity }) => {
 
         {activity.publishedAt && (
           <p className="text-gray-600 text-sm mb-4">
-            <span className="font-semibold">公開日:</span> {new Date(activity.publishedAt).toLocaleDateString("ja-JP")}
+            <span className="font-semibold">公開日:</span> {formatDateJa(activity.publishedAt)}
           </p>
         )}
 

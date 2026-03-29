@@ -6,6 +6,7 @@ import Head from "next/head";
 import { client } from "../../lib/microcms";
 import { Work, WorkResponse } from "../../types/work";
 import { LAYOUT, TITLE, CARD, IMAGE, BUTTON, ANIMATION } from "../../lib/constants";
+import { formatDateJa } from "../../lib/formatDate";
 
 type Props = {
   works: Work[];
@@ -34,7 +35,7 @@ export default function Works({ works }: Props) {
                 </Link>
                 {work.publishedAt && (
                   <p className="text-gray-600 text-sm mb-2">
-                    <span className="font-semibold">公開日:</span> {new Date(work.publishedAt).toLocaleDateString("ja-JP")}
+                    <span className="font-semibold">公開日:</span> {formatDateJa(work.publishedAt)}
                   </p>
                 )}
                 {work.image && (
