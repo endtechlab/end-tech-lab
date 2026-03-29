@@ -134,7 +134,6 @@ export default function Home({ news }: { news: News[] }) {
                     <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded-md text-xs font-medium">Oracle</span>
                     <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded-md text-xs font-medium">MySQL</span>
                     <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded-md text-xs font-medium">PostgreSQL</span>
-                    <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded-md text-xs font-medium">DB設計・チューニング</span>
                   </div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-3 border-l-2 border-orange-400">

@@ -73,7 +73,7 @@ const Header = () => {
         {/* PC用ナビゲーション */}
         <nav className="hidden md:flex flex-row gap-6 text-sm">
           <Link href="/activities" className="hover:underline whitespace-nowrap py-2 md:py-0">
-            活動報告
+            開発日誌
           </Link>
           <Link href="/works" className="hover:underline whitespace-nowrap py-2 md:py-0">
             実績紹介
@@ -96,7 +96,7 @@ const Header = () => {
       <div className={`absolute top-full left-0 right-0 bg-gray-800 border-t border-gray-700 md:hidden z-40 transition-all duration-300 ease-out ${isMenuOpen ? 'opacity-100 transform scale-y-100 origin-top' : 'opacity-0 transform scale-y-0 origin-top pointer-events-none'}`}>
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-4">
           <Link href="/activities" className="hover:underline whitespace-nowrap py-2 text-white" onClick={() => setIsMenuOpen(false)}>
-            活動報告
+            開発日誌
           </Link>
           <Link href="/works" className="hover:underline whitespace-nowrap py-2 text-white" onClick={() => setIsMenuOpen(false)}>
             実績紹介

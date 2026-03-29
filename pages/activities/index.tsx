@@ -14,12 +14,12 @@ export default function Activities({ activities }: Props) {
   return (
     <>
       <Head>
-        <title>活動報告 | End Tech Lab - エンドテックラボ</title>
-        <meta name="description" content="End Tech Lab（エンドテックラボ）の活動報告をご覧いただけます。日々の取り組みや地域での活動などを記録しています。" />
+        <title>開発日誌 | End Tech Lab - エンドテックラボ</title>
+        <meta name="description" content="End Tech Lab（エンドテックラボ）の開発日誌をご覧いただけます。開発の記録や技術的な取り組みを掲載しています。" />
       </Head>
       <main className={`${LAYOUT.MAX_WIDTH} mx-auto ${LAYOUT.CONTAINER_PADDING} ${LAYOUT.MAIN_PADDING}`}>
         <div>
-          <h1 className={`${TITLE.MAIN_SIZE} ${TITLE.FONT_WEIGHT} text-gray-800 ${TITLE.MARGIN_BOTTOM} ${TITLE.BORDER_BOTTOM} ${TITLE.BORDER_COLOR} ${TITLE.PADDING_BOTTOM} inline-block max-w-full ${TITLE.PADDING_X}`}>活動報告</h1>
+          <h1 className={`${TITLE.MAIN_SIZE} ${TITLE.FONT_WEIGHT} text-gray-800 ${TITLE.MARGIN_BOTTOM} ${TITLE.BORDER_BOTTOM} ${TITLE.BORDER_COLOR} ${TITLE.PADDING_BOTTOM} inline-block max-w-full ${TITLE.PADDING_X}`}>開発日誌</h1>
           <div className={`flex flex-col gap-8 ${LAYOUT.MAX_WIDTH} mx-auto`}>
             {activities.map((activity) => (
               <div key={activity.id} className={`bg-white ${CARD.SHADOW} ${CARD.ROUNDED} ${CARD.PADDING_SMALL} ${CARD.HOVER_SHADOW} ${ANIMATION.TRANSITION} flex flex-col`}>
