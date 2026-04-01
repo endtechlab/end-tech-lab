@@ -6,11 +6,12 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { client } from "../lib/microcms";
-import { News, NewsResponse } from "../types/news";
+import type { MicroCMSListResponse } from "microcms-js-sdk";
+import { News } from "../types/news";
 import { HERO, CACHE } from "../lib/constants";
-import { formatDateJa } from "../lib/formatDate";
+import { NewsListRow } from "../components/NewsListRow";
 
-export default function Home({ news }: { news: News[] }) {
+export default function Home({ news, showNewsMoreLink }: { news: News[]; showNewsMoreLink: boolean }) {
   const router = useRouter();
 
   useEffect(() => {
@@ -177,19 +178,21 @@ export default function Home({ news }: { news: News[] }) {
               <li className="p-4 text-gray-500">現在お知らせはありません。</li>
             )}
             {news.map((item) => (
-              <li key={item.id} className="py-3 px-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-0">
-                <span className="text-sm text-gray-500 min-w-[3.5em] md:text-left md:w-20 md:mr-3">
-                  {formatDateJa(item.publishedAt ?? item.createdAt)}
-                </span>
-                <span className="text-sm font-medium text-gray-800 flex-1" dangerouslySetInnerHTML={{ __html: item.title }} />
-              </li>
+              <NewsListRow key={item.id} item={item} />
             ))}
           </ul>
+          {showNewsMoreLink && (
+            <div className="mt-4 flex justify-end px-1">
+              <Link href="/news" className="text-sm font-medium text-blue-600 hover:text-blue-800 hover:underline">
+                お知らせ一覧を見る
+              </Link>
+            </div>
+          )}
         </section>
 
         {/* お問い合わせへの導線セクション */}
         <section className="max-w-2xl mx-auto mb-4 px-4 mt-8">
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 md:p-8 text-center">
+          <div className="bg-white border border-gray-200 rounded-lg p-6 md:p-8 text-center shadow-sm">
             <h3 className="text-lg md:text-xl font-medium text-gray-800 mb-3">
               お困りのことはありませんか？
             </h3>
@@ -212,10 +215,14 @@ export default function Home({ news }: { news: News[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await client.get<NewsResponse>({ endpoint: "news", queries: { limit: 3, orders: "-createdAt" } });
+  const data = await client.get<MicroCMSListResponse<News>>({
+    endpoint: "news",
+    queries: { limit: 3, orders: "-createdAt" },
+  });
   return {
     props: {
       news: data.contents || [],
+      showNewsMoreLink: data.totalCount > 3,
     },
     revalidate: CACHE.REVALIDATE_TIME,
   };
