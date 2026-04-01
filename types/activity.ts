@@ -4,6 +4,13 @@ export type Activity = {
     title: string;
     slug: string;
     content: string;
+    eyecatch?: {
+      url: string;
+      height: number;
+      width: number;
+    };
+    category?: string;
+    author?: string;
     publishedAt?: string;
   };
   

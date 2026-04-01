@@ -8,6 +8,8 @@ export type Work = {
       height: number;
       width: number;
     };
+    category?: string;
+    author?: string;
     url?: string;
     publishedAt?: string;
   };

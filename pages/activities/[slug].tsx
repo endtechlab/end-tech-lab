@@ -1,46 +1,34 @@
 // pages/activities/[slug].tsx
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import { client } from "../../lib/microcms";
 import { Activity, ActivityResponse } from "../../types/activity";
-import { LAYOUT, TITLE, CARD, BUTTON, ANIMATION } from "../../lib/constants";
-import { formatDateJa } from "../../lib/formatDate";
+import ArticleDetailLayout from "../../components/ArticleDetailLayout";
+import { parseArticleHtml, TocItem } from "../../lib/parseArticleHtml";
 
 type Props = {
   activity: Activity;
+  html: string;
+  toc: TocItem[];
 };
 
-const ActivityDetail: NextPage<Props> = ({ activity }) => {
+const ActivityDetail: NextPage<Props> = ({ activity, html, toc }) => {
   return (
     <>
       <Head>
         <title>{activity.title} | End-Tech-Lab</title>
       </Head>
-      <main className={`${LAYOUT.MAX_WIDTH} mx-auto ${LAYOUT.CONTAINER_PADDING} ${LAYOUT.MAIN_PADDING}`}>
-        <div>
-          <h1 className={`${TITLE.MAIN_SIZE} ${TITLE.FONT_WEIGHT} text-gray-800 ${TITLE.MARGIN_BOTTOM} ${TITLE.BORDER_BOTTOM} ${TITLE.BORDER_COLOR} ${TITLE.PADDING_BOTTOM} inline-block max-w-full ${TITLE.PADDING_X}`}>{activity.title}</h1>
-        </div>
-        <div className={`${LAYOUT.MAX_WIDTH} mx-auto bg-white ${CARD.SHADOW} ${CARD.ROUNDED} ${CARD.PADDING}`}>
-
-        {activity.publishedAt && (
-          <p className="text-gray-600 text-sm mb-4">
-            <span className="font-semibold">公開日:</span> {formatDateJa(activity.publishedAt)}
-          </p>
-        )}
-
-        <div
-          className="prose max-w-none"
-          dangerouslySetInnerHTML={{ __html: activity.content }}
-        />
-
-        <div className={CARD.MARGIN_TOP}>
-          <Link href="/activities" className={`inline-block bg-blue-50 hover:bg-blue-100 text-blue-800 ${BUTTON.FONT_WEIGHT} ${BUTTON.PADDING} ${BUTTON.ROUNDED} ${ANIMATION.TRANSITION_COLORS} border border-blue-100 shadow-sm`}>
-              ← 開発日誌一覧に戻る
-          </Link>
-        </div>
-        </div>
-      </main>
+      <ArticleDetailLayout
+        title={activity.title}
+        heroImage={activity.eyecatch}
+        publishedAt={activity.publishedAt}
+        category={activity.category}
+        author={activity.author}
+        toc={toc}
+        html={html}
+        backHref="/activities"
+        backLabel="← 開発日誌一覧に戻る"
+      />
     </>
   );
 };
@@ -61,9 +49,13 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
     endpoint: "activities",
     queries: { filters: `slug[equals]${slug}` },
   });
+  const activity = data.contents[0];
+  const parsed = parseArticleHtml(activity?.content ?? "");
   return {
     props: {
-      activity: data.contents[0],
+      activity,
+      html: parsed.html,
+      toc: parsed.toc,
     },
   };
 };
