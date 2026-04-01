@@ -40,7 +40,7 @@ export default function ArticleDetailLayout({
   const hasMeta = Boolean(publishedAt || category || author);
 
   return (
-    <main className={`${LAYOUT.MAX_WIDTH} mx-auto ${LAYOUT.CONTAINER_PADDING} ${LAYOUT.MAIN_PADDING}`}>
+    <main className={`${LAYOUT.MAX_WIDTH} mx-auto px-3 sm:px-4 ${LAYOUT.MAIN_PADDING}`}>
       <div>
         <h1
           className={`${TITLE.MAIN_SIZE} ${TITLE.FONT_WEIGHT} text-gray-800 ${TITLE.MARGIN_BOTTOM} ${TITLE.BORDER_BOTTOM} ${TITLE.BORDER_COLOR} ${TITLE.PADDING_BOTTOM} inline-block max-w-full ${TITLE.PADDING_X}`}
@@ -49,7 +49,9 @@ export default function ArticleDetailLayout({
         </h1>
       </div>
 
-      <div className={`${LAYOUT.MAX_WIDTH} mx-auto bg-white ${CARD.SHADOW} ${CARD.ROUNDED} ${CARD.PADDING}`}>
+      <div
+        className={`${LAYOUT.MAX_WIDTH} mx-auto bg-white ${CARD.SHADOW} ${CARD.ROUNDED} px-4 py-8 sm:px-6 md:px-8 md:py-10`}
+      >
         {heroImage && (
           <div className="mb-6">
             <div className="mx-auto w-full max-w-[1200px]">
