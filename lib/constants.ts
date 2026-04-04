@@ -93,6 +93,9 @@ export const CACHE = {
   REVALIDATE_TIME: 60, // 秒
 } as const;
 
+/** 個人開発サービス「オペナース学習室」 */
+export const OPEGAKU_URL = "https://opegaku.com/" as const;
+
 // スライドショー関連の定数
 export const SLIDESHOW = {
   INTERVAL: 4000, // ミリ秒

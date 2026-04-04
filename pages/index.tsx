@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { client } from "../lib/microcms";
 import type { MicroCMSListResponse } from "microcms-js-sdk";
 import { News } from "../types/news";
-import { HERO, CACHE } from "../lib/constants";
+import { HERO, CACHE, OPEGAKU_URL } from "../lib/constants";
 import { NewsListRow } from "../components/NewsListRow";
 
 export default function Home({ news, showNewsMoreLink }: { news: News[]; showNewsMoreLink: boolean }) {
@@ -163,6 +163,45 @@ export default function Home({ news, showNewsMoreLink }: { news: News[]; showNew
                     <span className="px-2 py-1 bg-pink-100 text-pink-800 rounded-md text-xs font-medium">microCMS</span>
                     <span className="px-2 py-1 bg-pink-100 text-pink-800 rounded-md text-xs font-medium">LINE公式アカウント構築</span>
                     <span className="px-2 py-1 bg-pink-100 text-pink-800 rounded-md text-xs font-medium">LINEスタンプ作成</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 個人開発サービス（「主に使用している技術」と同じセクション枠・内側カード体裁） */}
+            <div className="mt-6 md:mt-4 md:mt-6 md:border md:border-gray-200 md:rounded-lg p-0 md:p-5 md:p-6 border-t border-gray-200 md:border-t-0">
+              <h3 className="text-base md:text-lg font-semibold text-gray-800 mb-3 md:mb-4 pb-2 border-b border-gray-200 pt-4 md:pt-0">
+                個人開発サービス
+              </h3>
+              <div className="bg-gray-50 rounded-lg p-3 md:p-4 border-l-2 border-rose-400">
+                <div className="flex flex-col sm:flex-row sm:items-start gap-4 md:gap-6">
+                  <div className="relative w-full max-w-md mx-auto sm:mx-0 sm:max-w-none sm:w-52 md:w-60 shrink-0">
+                    <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                      <Image
+                        src="/opegaku.png"
+                        alt="オペナース学習室の画面イメージ"
+                        fill
+                        sizes="(max-width: 640px) 100vw, 240px"
+                        className="object-contain object-center"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-sm md:text-base font-semibold text-gray-800 mb-2">オペナース学習室</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                      手術室看護師向けの学習プラットフォームです。動画・記事で学び、クイズで理解度を確認できます。
+                    </p>
+                    <a
+                      href={OPEGAKU_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 hover:underline"
+                    >
+                      サイトを見る
+                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
