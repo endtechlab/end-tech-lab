@@ -189,7 +189,7 @@ export default function Home({ news, showNewsMoreLink }: { news: News[]; showNew
                   <div className="flex-1 min-w-0">
                     <h4 className="text-sm md:text-base font-semibold text-gray-800 mb-2">オペナース学習室</h4>
                     <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                      手術室看護師向けの学習プラットフォームです。動画・記事で学び、クイズで理解度を確認できます。
+                      現役の手術室看護師オペナースねず子さんと共同開発した、手術室看護師向けの学習プラットフォームです。動画・記事で学び、クイズで理解度を確認できます。
                     </p>
                     <a
                       href={OPEGAKU_URL}
